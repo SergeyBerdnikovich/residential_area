@@ -1,4 +1,7 @@
 ResidentialArea::Application.routes.draw do
+  resources :apartments
+
+
   resources :houses
 
 
