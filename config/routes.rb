@@ -1,4 +1,10 @@
 ResidentialArea::Application.routes.draw do
+  resources :partners
+
+
+  resources :heads
+
+
   resources :houses do
     resources :apartments
   end
