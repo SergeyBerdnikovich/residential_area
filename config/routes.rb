@@ -1,8 +1,7 @@
 ResidentialArea::Application.routes.draw do
-  resources :apartments
-
-
-  resources :houses
+  resources :houses do
+    resources :apartments
+  end
 
 
   # The priority is based upon order of creation:

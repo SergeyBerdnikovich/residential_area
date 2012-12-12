@@ -2,7 +2,8 @@ class ApartmentsController < ApplicationController
   # GET /apartments
   # GET /apartments.json
   def index
-    @apartments = Apartment.all
+    @house = House.find(params[:house_id])
+    @apartments = @house.apartments
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,8 +25,8 @@ class ApartmentsController < ApplicationController
   # GET /apartments/new
   # GET /apartments/new.json
   def new
+    @house = House.find(params[:house_id])
     @apartment = Apartment.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @apartment }
@@ -40,12 +41,13 @@ class ApartmentsController < ApplicationController
   # POST /apartments
   # POST /apartments.json
   def create
+    @house = House.find(params[:house_id])
     @apartment = Apartment.new(params[:apartment])
-
+    @house.apartments << @apartment
     respond_to do |format|
       if @apartment.save
-        format.html { redirect_to @apartment, notice: 'Apartment was successfully created.' }
-        format.json { render json: @apartment, status: :created, location: @apartment }
+        format.html { redirect_to house_apartments_path(@house), notice: 'Apartment was successfully created.' }
+        format.json { render json: house_apartments_path(@house), status: :created, location: @apartment }
       else
         format.html { render action: "new" }
         format.json { render json: @apartment.errors, status: :unprocessable_entity }

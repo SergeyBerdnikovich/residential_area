@@ -1,4 +1,4 @@
-<%= form_for(@apartment) do |f| %>
+<%= form_for(@apartment, url: {action: :create}) do |f| %>
   <% if @apartment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@apartment.errors.count, "error") %> prohibited this apartment from being saved:</h2>
@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :house %><br />
-    <%= f.text_field :house %>
+    <%= f.text_field :house, :value => @house.title, :disabled => true %>
   </div>
   <div class="field">
     <%= f.label :title %><br />

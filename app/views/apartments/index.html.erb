@@ -16,7 +16,7 @@
 
 <% @apartments.each do |apartment| %>
   <tr>
-    <td><%= apartment.house %></td>
+    <td><%= apartment.house.title %></td>
     <td><%= apartment.title %></td>
     <td><%= apartment.description %></td>
     <td><%= apartment.cost %></td>
@@ -32,4 +32,4 @@
 
 <br />
 
-<%= link_to 'New Apartment', new_apartment_path %>
+<%= link_to 'New Apartment', new_house_apartment_path(@house) %>
