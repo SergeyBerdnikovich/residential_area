@@ -1,8 +1,7 @@
-<h1>Listing apartments</h1>
+<h1>Apartments for <%= link_to @house.title, house_path(@house) %></h1>
 
 <table>
   <tr>
-    <th>House</th>
     <th>Title</th>
     <th>Description</th>
     <th>Cost</th>
@@ -16,16 +15,15 @@
 
 <% @apartments.each do |apartment| %>
   <tr>
-    <td><%= apartment.house.title %></td>
     <td><%= apartment.title %></td>
     <td><%= apartment.description %></td>
     <td><%= apartment.cost %></td>
     <td><%= apartment.space %></td>
     <td><%= apartment.number_of_rooms %></td>
     <td><%= apartment.residential %></td>
-    <td><%= link_to 'Show', apartment %></td>
-    <td><%= link_to 'Edit', edit_apartment_path(apartment) %></td>
-    <td><%= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', house_apartment_path(@house, apartment) %></td>
+    <td><%= link_to 'Edit', edit_house_apartment_path(@house, apartment) %></td>
+    <td><%= link_to 'Destroy', house_apartment_path(@house, apartment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

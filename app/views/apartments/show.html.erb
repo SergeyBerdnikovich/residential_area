@@ -2,7 +2,7 @@
 
 <p>
   <b>House:</b>
-  <%= @apartment.house %>
+  <%= @apartment.house.title %>
 </p>
 
 <p>
@@ -36,5 +36,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_apartment_path(@apartment) %> |
-<%= link_to 'Back', apartments_path %>
+<%= link_to 'Edit', edit_house_apartment_path(@house, @apartment) %> |
+<%= link_to 'Back', house_apartments_path %>

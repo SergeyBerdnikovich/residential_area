@@ -10,7 +10,14 @@
   <%= @house.description %>
 </p>
 
-<%= link_to 'show apartmens', house_apartments_path(@house) %>
+<%= link_to 'Description', "#" %>
 
-<%= link_to 'Edit', edit_house_path(@house) %> |
+<% unless @house.apartments.blank? %>
+  <%= link_to 'Apartmens', house_apartments_path(@house) %>
+<% else %>
+  <%= link_to 'Add apartmens', new_house_apartment_path(@house) %>
+<% end %>
+<br>
+<%= link_to 'Edit', edit_house_path(@house) %>
+<%= link_to 'Destroy', @house, method: :delete, data: { confirm: 'Are you sure?' } %><br>
 <%= link_to 'Back', houses_path %>

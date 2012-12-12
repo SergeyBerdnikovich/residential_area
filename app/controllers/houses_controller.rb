@@ -2,7 +2,8 @@ class HousesController < ApplicationController
   # GET /houses
   # GET /houses.json
   def index
-    @houses = House.all
+    @completed_houses = House.get_completed_houses
+    @uncompleted_houses = House.get_uncompleted_houses
 
     respond_to do |format|
       format.html # index.html.erb

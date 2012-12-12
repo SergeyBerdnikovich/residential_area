@@ -14,6 +14,7 @@ class ApartmentsController < ApplicationController
   # GET /apartments/1
   # GET /apartments/1.json
   def show
+    @house = House.find(params[:house_id])
     @apartment = Apartment.find(params[:id])
 
     respond_to do |format|
@@ -35,6 +36,7 @@ class ApartmentsController < ApplicationController
 
   # GET /apartments/1/edit
   def edit
+    @house = House.find(params[:house_id])
     @apartment = Apartment.find(params[:id])
   end
 
@@ -58,11 +60,12 @@ class ApartmentsController < ApplicationController
   # PUT /apartments/1
   # PUT /apartments/1.json
   def update
+    @house = House.find(params[:house_id])
     @apartment = Apartment.find(params[:id])
 
     respond_to do |format|
       if @apartment.update_attributes(params[:apartment])
-        format.html { redirect_to @apartment, notice: 'Apartment was successfully updated.' }
+        format.html { redirect_to house_apartments_path(@house), notice: 'Apartment was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -74,11 +77,12 @@ class ApartmentsController < ApplicationController
   # DELETE /apartments/1
   # DELETE /apartments/1.json
   def destroy
+    @house = House.find(params[:house_id])
     @apartment = Apartment.find(params[:id])
     @apartment.destroy
 
     respond_to do |format|
-      format.html { redirect_to apartments_url }
+      format.html { redirect_to house_apartments_path(@house) }
       format.json { head :no_content }
     end
   end
