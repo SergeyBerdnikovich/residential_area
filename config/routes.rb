@@ -1,4 +1,7 @@
 ResidentialArea::Application.routes.draw do
+  resources :locations
+
+
   resources :phone_numbers
 
 

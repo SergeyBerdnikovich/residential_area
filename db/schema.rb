@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121212134812) do
+ActiveRecord::Schema.define(:version => 20121213103317) do
 
   create_table "apartments", :force => true do |t|
     t.integer  "house_id"
@@ -41,6 +41,21 @@ ActiveRecord::Schema.define(:version => 20121212134812) do
     t.datetime "updated_at",  :null => false
     t.boolean  "completed"
   end
+
+  create_table "locations", :force => true do |t|
+    t.string   "address"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.integer  "house_id"
+    t.integer  "head_id"
+    t.integer  "partner_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "locations", ["head_id"], :name => "index_locations_on_head_id"
+  add_index "locations", ["house_id"], :name => "index_locations_on_house_id"
+  add_index "locations", ["partner_id"], :name => "index_locations_on_partner_id"
 
   create_table "partners", :force => true do |t|
     t.string   "title"

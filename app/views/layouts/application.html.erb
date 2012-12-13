@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <%= yield :head %>
   <title>ResidentialArea</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
@@ -11,4 +12,5 @@
 <%= yield %>
 
 </body>
+<%= yield :scripts %>
 </html>
