@@ -14,7 +14,7 @@
   <b>Latitude:</b>
   <%= @location.latitude %>
 </p>
-
+<%= gmaps4rails(@json) %><br>
 
 <%= link_to 'Edit', edit_location_path(@location) %> |
 <%= link_to 'Back', locations_path %>

@@ -25,6 +25,12 @@
       <%= ff.text_field :number %>
     </div>
   <% end %>
+  <%= f.fields_for :location do |ff| %>
+    <div class="field">
+      <%= ff.label :address %><br />
+      <%= ff.text_field :address %>
+    </div>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

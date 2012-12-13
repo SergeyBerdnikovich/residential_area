@@ -10,6 +10,11 @@
   <%= @house.description %>
 </p>
 
+<p>
+  <b>Address:</b>
+  <%= @location.address %>
+</p>
+
 <%= link_to 'Description', "#" %>
 
 <% unless @house.apartments.blank? %>
@@ -18,6 +23,15 @@
   <%= link_to 'Add apartmens', new_house_apartment_path(@house) %>
 <% end %>
 <br>
+<%= gmaps("markers" => {"data" => @json,
+                        "options" => { "picture" => ActionController::Base.helpers.asset_path('kafe.png'),
+                                       "width" => 60,
+                                       "length" => 60 } },
+          "map_options" => {"zoom" => 15,
+                            "auto_adjust" => true,
+                            "auto_zoom" => false,
+                            "language" => 'ru'},) %>
+
 <%= link_to 'Edit', edit_house_path(@house) %>
 <%= link_to 'Destroy', @house, method: :delete, data: { confirm: 'Are you sure?' } %><br>
 <%= link_to 'Back', houses_path %>

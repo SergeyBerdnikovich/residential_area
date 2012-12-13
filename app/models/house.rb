@@ -1,7 +1,12 @@
 class House < ActiveRecord::Base
   has_many :apartments, :dependent => :destroy
-  attr_accessible :description, :title, :completed
+  has_one :location, :dependent => :destroy
 
-   scope :get_completed_houses, where(:completed => true)
-   scope :get_uncompleted_houses, where(:completed => false)
+  accepts_nested_attributes_for :location, :allow_destroy => :true,
+   :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
+
+  attr_accessible :description, :title, :completed, :location_attributes
+
+  scope :get_completed_houses, where(:completed => true)
+  scope :get_uncompleted_houses, where(:completed => false)
 end

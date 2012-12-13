@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121213103317) do
+ActiveRecord::Schema.define(:version => 20121213105459) do
 
   create_table "apartments", :force => true do |t|
     t.integer  "house_id"
@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(:version => 20121213103317) do
     t.integer  "partner_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.boolean  "gmaps"
+    t.string   "name"
   end
 
   add_index "locations", ["head_id"], :name => "index_locations_on_head_id"

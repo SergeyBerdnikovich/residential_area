@@ -23,6 +23,16 @@
     <div class="field">
       <%= ff.label :number %><br />
       <%= ff.text_field :number %>
+      <% unless ff.object.new_record? %>
+       <%= ff.check_box '_destroy' %>
+       <%= ff.label '_destroy', 'Remove' %>
+    <% end %>
+    </div>
+  <% end %>
+  <%= f.fields_for :location do |fff| %>
+    <div class="field">
+      <%= fff.label :address %><br />
+      <%= fff.text_field :address %>
     </div>
   <% end %>
   <div class="actions">

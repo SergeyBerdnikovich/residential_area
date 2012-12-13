@@ -15,6 +15,8 @@ class HousesController < ApplicationController
   # GET /houses/1.json
   def show
     @house = House.find(params[:id])
+    @location = Location.find_by_house_id(@house.id)
+    @json = @location.to_gmaps4rails if @location
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,6 +28,7 @@ class HousesController < ApplicationController
   # GET /houses/new.json
   def new
     @house = House.new
+    @house.build_location
 
     respond_to do |format|
       format.html # new.html.erb

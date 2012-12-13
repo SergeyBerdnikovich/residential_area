@@ -3,6 +3,7 @@ class LocationsController < ApplicationController
   # GET /locations.json
   def index
     @locations = Location.all
+    @json = Location.all.to_gmaps4rails
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,7 +15,7 @@ class LocationsController < ApplicationController
   # GET /locations/1.json
   def show
     @location = Location.find(params[:id])
-
+    @json = @location.to_gmaps4rails
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @location }
@@ -57,9 +58,12 @@ class LocationsController < ApplicationController
   # PUT /locations/1.json
   def update
     @location = Location.find(params[:id])
+    temp_location = Location.create!(:address=>params[:location][:address])
 
     respond_to do |format|
-      if @location.update_attributes(params[:location])
+      if @location.update_attributes(:address=>temp_location.address,
+                                     :longitude=>temp_location.longitude,
+                                     :latitude=>temp_location.latitude)
         format.html { redirect_to @location, notice: 'Location was successfully updated.' }
         format.json { head :no_content }
       else
@@ -67,6 +71,7 @@ class LocationsController < ApplicationController
         format.json { render json: @location.errors, status: :unprocessable_entity }
       end
     end
+    temp_location.destroy
   end
 
   # DELETE /locations/1

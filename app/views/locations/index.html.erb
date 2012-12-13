@@ -22,6 +22,9 @@
 <% end %>
 </table>
 
-<br />
-
+<br>
+<%= gmaps("markers" => {"data" => @json, "options" => {"list_container" => "markers_list" } }) %>
+<br>
+<ul id="markers_list"></ul>
+<br>
 <%= link_to 'New Location', new_location_path %>

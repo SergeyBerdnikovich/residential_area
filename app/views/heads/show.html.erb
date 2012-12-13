@@ -16,7 +16,7 @@
     <%= phone_number.number %><br>
   <% end %>
 </p>
-
+<%= gmaps4rails(@json) if @json %><br>
 
 <%= link_to 'Edit', edit_head_path(@head) %> |
 <%= link_to 'Back', heads_path %>

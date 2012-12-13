@@ -14,6 +14,8 @@ class HeadsController < ApplicationController
   # GET /heads/1.json
   def show
     @head = Head.find(params[:id])
+    location = Location.find_by_head_id(@head.id)
+    @json = location.to_gmaps4rails if location
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,6 +28,8 @@ class HeadsController < ApplicationController
   def new
     @head = Head.new
     @head.phone_numbers.build
+    @head.build_location
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @head }
