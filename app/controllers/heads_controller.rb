@@ -25,7 +25,7 @@ class HeadsController < ApplicationController
   # GET /heads/new.json
   def new
     @head = Head.new
-
+    @head.phone_numbers.build
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @head }

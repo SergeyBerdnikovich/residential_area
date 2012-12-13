@@ -1,5 +1,5 @@
 class PhoneNumber < ActiveRecord::Base
-  belongs_to :heads
-  belongs_to :partners
-  attr_accessible :number
+  belongs_to :head
+  belongs_to :partner
+  attr_accessible :number, :head_id, :partner_id
 end

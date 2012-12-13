@@ -19,6 +19,12 @@
     <%= f.label :description %><br />
     <%= f.text_field :description %>
   </div>
+  <%= f.fields_for :phone_numbers do |ff| %>
+    <div class="field">
+      <%= ff.label :number %><br />
+      <%= ff.text_field :number %>
+    </div>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

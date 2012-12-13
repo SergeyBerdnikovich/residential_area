@@ -17,11 +17,11 @@
   </div>
   <div class="field">
     <%= f.label :heads %><br />
-    <%= f.text_field :heads %>
+    <%= f.collection_select :head_id, Head.all, :id, :full_name, :prompt => true %>
   </div>
   <div class="field">
     <%= f.label :partners %><br />
-    <%= f.text_field :partners %>
+    <%= f.collection_select :partner_id, Partner.all, :id, :title, :prompt => true %>
   </div>
   <div class="actions">
     <%= f.submit %>

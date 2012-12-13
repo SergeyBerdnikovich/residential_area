@@ -6,13 +6,13 @@
 </p>
 
 <p>
-  <b>Heads:</b>
-  <%= @phone_number.heads %>
+  <b>Head:</b>
+  <%= @phone_number.head.full_name if @phone_number.head %>
 </p>
 
 <p>
-  <b>Partners:</b>
-  <%= @phone_number.partners %>
+  <b>Partner:</b>
+  <%= @phone_number.partner.title if @phone_number.partner %>
 </p>
 
 

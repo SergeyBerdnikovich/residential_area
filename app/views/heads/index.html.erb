@@ -4,6 +4,7 @@
   <tr>
     <th>Full name</th>
     <th>Position</th>
+    <th>Phone numbers</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,6 +14,10 @@
   <tr>
     <td><%= head.full_name %></td>
     <td><%= head.position %></td>
+    <td><% head.phone_numbers.each do |phone_number| %>
+          <%= phone_number.number %><br>
+        <% end %>
+    </td>
     <td><%= link_to 'Show', head %></td>
     <td><%= link_to 'Edit', edit_head_path(head) %></td>
     <td><%= link_to 'Destroy', head, method: :delete, data: { confirm: 'Are you sure?' } %></td>

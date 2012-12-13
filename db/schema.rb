@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121212093240) do
+ActiveRecord::Schema.define(:version => 20121212134812) do
 
   create_table "apartments", :force => true do |t|
     t.integer  "house_id"
@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(:version => 20121212093240) do
 
   add_index "apartments", ["house_id"], :name => "index_apartments_on_house_id"
 
+  create_table "heads", :force => true do |t|
+    t.string   "full_name"
+    t.string   "position"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "houses", :force => true do |t|
     t.string   "title"
     t.string   "description"
@@ -34,5 +41,23 @@ ActiveRecord::Schema.define(:version => 20121212093240) do
     t.datetime "updated_at",  :null => false
     t.boolean  "completed"
   end
+
+  create_table "partners", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "phone_numbers", :force => true do |t|
+    t.string   "number"
+    t.integer  "head_id"
+    t.integer  "partner_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "phone_numbers", ["head_id"], :name => "index_phone_numbers_on_head_id"
+  add_index "phone_numbers", ["partner_id"], :name => "index_phone_numbers_on_partner_id"
 
 end

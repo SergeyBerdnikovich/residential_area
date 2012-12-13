@@ -4,6 +4,7 @@
   <tr>
     <th>Title</th>
     <th>Description</th>
+    <th>Phone number</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,6 +14,10 @@
   <tr>
     <td><%= partner.title %></td>
     <td><%= partner.description %></td>
+    <td><% partner.phone_numbers.each do |phone_number| %>
+          <%= phone_number.number %><br>
+        <% end %>
+    </td>
     <td><%= link_to 'Show', partner %></td>
     <td><%= link_to 'Edit', edit_partner_path(partner) %></td>
     <td><%= link_to 'Destroy', partner, method: :delete, data: { confirm: 'Are you sure?' } %></td>

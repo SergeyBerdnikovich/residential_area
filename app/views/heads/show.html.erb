@@ -10,6 +10,13 @@
   <%= @head.position %>
 </p>
 
+<p>
+  <b>Phone number:</b><br>
+  <% @head.phone_numbers.each do |phone_number| %>
+    <%= phone_number.number %><br>
+  <% end %>
+</p>
+
 
 <%= link_to 'Edit', edit_head_path(@head) %> |
 <%= link_to 'Back', heads_path %>

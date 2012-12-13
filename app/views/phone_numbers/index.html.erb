@@ -3,8 +3,8 @@
 <table>
   <tr>
     <th>Number</th>
-    <th>Heads</th>
-    <th>Partners</th>
+    <th>Head</th>
+    <th>Partner</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,8 +13,8 @@
 <% @phone_numbers.each do |phone_number| %>
   <tr>
     <td><%= phone_number.number %></td>
-    <td><%= phone_number.heads %></td>
-    <td><%= phone_number.partners %></td>
+    <td><%= link_to phone_number.head.full_name, head_path(phone_number.head) if phone_number.head %></td>
+    <td><%= link_to phone_number.partner.title, partner_path(phone_number.partner) if phone_number.partner %></td>
     <td><%= link_to 'Show', phone_number %></td>
     <td><%= link_to 'Edit', edit_phone_number_path(phone_number) %></td>
     <td><%= link_to 'Destroy', phone_number, method: :delete, data: { confirm: 'Are you sure?' } %></td>

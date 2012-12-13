@@ -5,12 +5,12 @@
   <%= link_to house.title, house %><br>
 <% end %>
 
-<br />
 <h2>House under construction:</h2>
 
 <% @uncompleted_houses.each do |house| %>
   <%= link_to house.title, house %><br>
 <% end %>
-<br/>
-
-<%= link_to 'New House', new_house_path %>
+<br>
+<%= link_to 'New House', new_house_path %><br><br>
+<%= link_to 'Heads', heads_path %><br>
+<%= link_to 'Partners', partners_path %><br>

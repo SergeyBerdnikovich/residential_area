@@ -41,6 +41,14 @@ class PhoneNumbersController < ApplicationController
   # POST /phone_numbers.json
   def create
     @phone_number = PhoneNumber.new(params[:phone_number])
+    unless params[:phone_number][:heads_id].blank?
+      @head = Head.find(params[:phone_number][:heads_id])
+      @head.phone_numbers << @phone_number
+    end
+    unless params[:phone_number][:partners_id].blank?
+      @partner = Partner.find(params[:phone_number][:partners_id])
+      @partner.phone_numbers << @phone_number
+    end
 
     respond_to do |format|
       if @phone_number.save
