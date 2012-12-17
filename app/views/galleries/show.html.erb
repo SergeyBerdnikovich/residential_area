@@ -2,15 +2,15 @@
 
 <p>
   <b>House:</b>
-  <%= @gallery.house %>
+  <%= @gallery.house.title if @gallery.house %>
 </p>
 
 <p>
   <b>Apartment:</b>
-  <%= @gallery.apartment %>
+  <%= @gallery.apartment.title if @gallery.apartment %>
 </p>
 
-<%= image_tag @gallery.image.url %>
+<%= image_tag @gallery.image.url %><br>
 
 <%= link_to 'Edit', edit_gallery_path(@gallery) %> |
 <%= link_to 'Back', galleries_path %>

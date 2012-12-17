@@ -2,7 +2,7 @@ class Gallery < ActiveRecord::Base
   belongs_to :house
   belongs_to :apartment
 
-  has_attached_file :image, :styles => { :small => "150x150>" },
+  has_attached_file :image, :styles => { :small => "50x50>" },
                   :url  => "/images/gallery/:id/:style/:basename.:extension",
                   :path => ":rails_root/public/images/gallery/:id/:style/:basename.:extension"
 

@@ -7,12 +7,14 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
 
 <% @galleries.each do |gallery| %>
   <tr>
-    <td><%= gallery.house %></td>
-    <td><%= gallery.apartment %></td>
+    <td><%= gallery.house.title if gallery.house %></td>
+    <td><%= gallery.apartment.title if gallery.apartment %></td>
+    <td><%= image_tag gallery.image.url(:small) %></td>
     <td><%= link_to 'Show', gallery %></td>
     <td><%= link_to 'Edit', edit_gallery_path(gallery) %></td>
     <td><%= link_to 'Destroy', gallery, method: :delete, data: { confirm: 'Are you sure?' } %></td>
