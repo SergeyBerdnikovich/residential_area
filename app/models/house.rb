@@ -1,5 +1,6 @@
 class House < ActiveRecord::Base
   has_many :apartments, :dependent => :destroy
+  has_many :galleries, :dependent => :destroy
   has_one :location, :dependent => :destroy
 
   accepts_nested_attributes_for :location, :allow_destroy => :true,

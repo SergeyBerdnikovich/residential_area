@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121213105459) do
+ActiveRecord::Schema.define(:version => 20121217123453) do
 
   create_table "apartments", :force => true do |t|
     t.integer  "house_id"
@@ -26,6 +26,20 @@ ActiveRecord::Schema.define(:version => 20121213105459) do
   end
 
   add_index "apartments", ["house_id"], :name => "index_apartments_on_house_id"
+
+  create_table "galleries", :force => true do |t|
+    t.integer  "house_id"
+    t.integer  "apartment_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "galleries", ["apartment_id"], :name => "index_galleries_on_apartment_id"
+  add_index "galleries", ["house_id"], :name => "index_galleries_on_house_id"
 
   create_table "heads", :force => true do |t|
     t.string   "full_name"
