@@ -1,4 +1,10 @@
 ResidentialArea::Application.routes.draw do
+  get "pages/contacts"
+
+  get "pages/developer"
+
+  get "pages/files"
+
   resources :galleries
 
 
