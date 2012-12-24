@@ -1,4 +1,5 @@
 class PhoneNumbersController < ApplicationController
+  before_filter :init_menu
   # GET /phone_numbers
   # GET /phone_numbers.json
   def index

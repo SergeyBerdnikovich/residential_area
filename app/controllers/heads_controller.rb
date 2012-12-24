@@ -1,4 +1,5 @@
 class HeadsController < ApplicationController
+  before_filter :init_menu
   # GET /heads
   # GET /heads.json
   def index

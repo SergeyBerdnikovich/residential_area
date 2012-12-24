@@ -1,4 +1,5 @@
 class ApartmentsController < ApplicationController
+  before_filter :init_menu
   # GET /apartments
   # GET /apartments.json
   def index

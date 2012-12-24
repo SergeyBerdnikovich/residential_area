@@ -1,4 +1,5 @@
 class HousesController < ApplicationController
+  before_filter :init_menu
   # GET /houses
   # GET /houses.json
   def index

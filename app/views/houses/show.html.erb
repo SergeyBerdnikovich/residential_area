@@ -12,7 +12,7 @@
 
 <p>
   <b>Address:</b>
-  <%= @location.address %>
+  <%= @location.address if @location %>
 </p>
 
 <%= link_to 'Description', "#" %>

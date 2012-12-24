@@ -1,4 +1,5 @@
 class GalleriesController < ApplicationController
+  before_filter :init_menu
   # GET /galleries
   # GET /galleries.json
   def index

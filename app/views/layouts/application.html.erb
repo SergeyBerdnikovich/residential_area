@@ -8,9 +8,50 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span2">
+        <ul class="nav nav-list">
+          <li class="nav-header">Меню</li>
+          <li class="dropdown-submenu">
+            <a tabindex="-1" href="#"><i class="icon-home"></i>Жилищное строительство</a>
+            <ul class="dropdown-menu">
+              <li class="active"><a href="#"><i class="icon-home"></i>Готовые</a></li>
+              <li>
+                <% @completed_houses.each do |house| %>
+                  <%= link_to "#{house.title}", house_path(house)%>
+                <% end %>
+              </li>
+              <li class="active"><a href="#"><i class="icon-wrench"></i>Строятся</a></li>
+              <li>
+                <% @uncompleted_houses.each do |house| %>
+                  <%= link_to "#{house.title}", house_path(house)%>
+                <% end %>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown-submenu">
+            <a tabindex="-1" href="#"><i class="icon-home"></i>Комерческие объекты</a>
+            <ul class="dropdown-menu">
+              <li>
+                <% @apartments.each do |apartment| %>
+                  <%= link_to "#{apartment.title}", house_apartments_path(apartment)%>
+                <% end %>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/pages/developer"><i class="icon-info-sign"></i>Застройщик</a></li>
+          <li><a href="#"><i class="icon-info-sign"></i>Новости</a></li>
+          <li><a href="#"><i class="icon-pencil"></i>Статьи</a></li>
+          <li><a href="/pages/files"><i class="icon-file"></i>Юридический отдел</a></li>
+          <li><a href="/pages/contacts"><i class="icon-envelope"></i>Контактная информация</a></li>
+        </ul>
+      </div>
+      <div class="span10">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
 </body>
 <%= yield :scripts %>
 </html>
