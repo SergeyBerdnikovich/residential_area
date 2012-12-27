@@ -1,4 +1,6 @@
 ResidentialArea::Application.routes.draw do
+  devise_for :users, :controllers => { :registrations => "registrations", :sessions => "sessions" }
+
   get "pages/contacts"
 
   get "pages/developer"

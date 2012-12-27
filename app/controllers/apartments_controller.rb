@@ -1,5 +1,6 @@
 class ApartmentsController < ApplicationController
   before_filter :init_menu
+  before_filter :authenticate_user!, :except => [:index, :show]
   # GET /apartments
   # GET /apartments.json
   def index
