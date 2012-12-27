@@ -18,6 +18,7 @@ class HousesController < ApplicationController
     @house = House.find(params[:id])
     @location = Location.find_by_house_id(@house.id)
     @json = @location.to_gmaps4rails if @location
+    @gallery = Gallery.get_gallery_for_house(@house.id)
 
     respond_to do |format|
       format.html # show.html.erb

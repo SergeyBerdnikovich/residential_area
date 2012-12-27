@@ -34,7 +34,19 @@
   <b>Residential:</b>
   <%= @apartment.residential %>
 </p>
-
+<br>
+<div id="gallery">
+    <ul>
+      <% @gallery.each do |photo| %>
+        <li>
+            <a href=<%= "#{photo.image.url}" %> title=<%= "#{photo.image_file_name}" %>>
+                <%= image_tag photo.image.url(:small) %>
+            </a>
+        </li>
+      <% end %>
+    </ul>
+</div>
+<br>
 
 <%= link_to 'Edit', edit_house_apartment_path(@house, @apartment) %> |
 <%= link_to 'Back', house_apartments_path %>

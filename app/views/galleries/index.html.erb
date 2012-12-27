@@ -1,38 +1,3 @@
-<head>
-  <!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <link rel="stylesheet" type="text/css" href="../style-projects-jquery.css" />
-
-    <script type="text/javascript" src="js/ightbox/jquery.js"></script>
-    <script type="text/javascript" src="js/ightbox/jquery.lightbox-0.5.js"></script>
-    <link rel="stylesheet" type="text/css" href="stylesheets/lightbox/jquery.lightbox-0.5.css" media="screen" />
- -->
-    <script type="text/javascript">
-    $(function() {
-        $('#gallery a').lightBox();
-    });
-    </script>
-    <style type="text/css">
-  /* jQuery lightBox plugin - Gallery style */
-  #gallery {
-    background-color: #444;
-    padding: 10px;
-    width: 520px;
-  }
-  #gallery ul { list-style: none; }
-  #gallery ul li { display: inline; }
-  #gallery ul img {
-    border: 5px solid #3e3e3e;
-    border-width: 5px 5px 20px;
-  }
-  #gallery ul a:hover img {
-    border: 5px solid #fff;
-    border-width: 5px 5px 20px;
-    color: #fff;
-  }
-  #gallery ul a:hover { color: #fff; }
-  </style>
-</head>
-
 <h1>Listing galleries</h1>
 
 <table class="table">
@@ -45,24 +10,24 @@
     <th></th>
   </tr>
 
-<% @galleries.each do |gallery| %>
+<% @gallery.each do |photo| %>
   <tr>
-    <td><%= gallery.house.title if gallery.house %></td>
-    <td><%= gallery.apartment.title if gallery.apartment %></td>
-    <td><%= image_tag gallery.image.url(:small) %></td>
-    <td><%= link_to 'Show', gallery %></td>
-    <td><%= link_to 'Edit', edit_gallery_path(gallery) %></td>
-    <td><%= link_to 'Destroy', gallery, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= photo.house.title if photo.house %></td>
+    <td><%= photo.apartment.title if photo.apartment %></td>
+    <td><%= image_tag photo.image.url(:small) %></td>
+    <td><%= link_to 'Show', photo %></td>
+    <td><%= link_to 'Edit', edit_gallery_path(photo) %></td>
+    <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <div id="gallery">
     <ul>
-      <% @galleries.each do |gallery| %>
+      <% @gallery.each do |photo| %>
         <li>
-            <a href=<%= "#{gallery.image.url}" %> title=<%= "#{gallery.image_file_name}" %>>
-                <%= image_tag gallery.image.url(:small) %>
+            <a href=<%= "#{photo.image.url}" %> title=<%= "#{photo.image_file_name}" %>>
+                <%= image_tag photo.image.url(:small) %>
             </a>
         </li>
       <% end %>

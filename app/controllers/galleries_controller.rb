@@ -3,7 +3,7 @@ class GalleriesController < ApplicationController
   # GET /galleries
   # GET /galleries.json
   def index
-    @galleries = Gallery.all
+    @gallery = Gallery.all
 
     respond_to do |format|
       format.html # index.html.erb

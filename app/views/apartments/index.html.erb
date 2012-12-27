@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th></th>
     <th>Title</th>
     <th>Description</th>
     <th>Cost</th>
@@ -15,6 +16,7 @@
 
 <% @apartments.each do |apartment| %>
   <tr>
+    <td><%= image_tag apartment.galleries[0].image.url(:small) if apartment.galleries[0] %></td>
     <td><%= apartment.title %></td>
     <td><%= apartment.description %></td>
     <td><%= apartment.cost %></td>
