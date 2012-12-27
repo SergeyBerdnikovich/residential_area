@@ -6,4 +6,8 @@ class ApplicationController < ActionController::Base
     @uncompleted_houses = House.get_uncompleted_houses
     @apartments = Apartment.get_not_residential_apartments
   end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => exception.message
+  end
 end

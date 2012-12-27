@@ -10,9 +10,14 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   belongs_to :role
 
- after_create :define_role
+  after_create :define_role
+
+  def role?(role)
+    self.role && self.role.name == role.to_s
+  end
 
   private
+
   def define_role
     Role.first.users << User.last
   end

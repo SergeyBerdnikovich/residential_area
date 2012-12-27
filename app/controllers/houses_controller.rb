@@ -1,12 +1,11 @@
 class HousesController < ApplicationController
   before_filter :init_menu
   before_filter :authenticate_user!, :except => [:index, :show]
+
+  load_and_authorize_resource
   # GET /houses
   # GET /houses.json
   def index
-    @completed_houses = House.get_completed_houses
-    @uncompleted_houses = House.get_uncompleted_houses
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @houses }
@@ -16,7 +15,6 @@ class HousesController < ApplicationController
   # GET /houses/1
   # GET /houses/1.json
   def show
-    @house = House.find(params[:id])
     @location = Location.find_by_house_id(@house.id)
     @json = @location.to_gmaps4rails if @location
     @gallery = Gallery.get_gallery_for_house(@house.id)
@@ -30,7 +28,6 @@ class HousesController < ApplicationController
   # GET /houses/new
   # GET /houses/new.json
   def new
-    @house = House.new
     @house.build_location
 
     respond_to do |format|
@@ -41,13 +38,12 @@ class HousesController < ApplicationController
 
   # GET /houses/1/edit
   def edit
-    @house = House.find(params[:id])
   end
 
   # POST /houses
   # POST /houses.json
   def create
-    @house = House.new(params[:house])
+    authorize! :create, @house
 
     respond_to do |format|
       if @house.save
@@ -63,7 +59,7 @@ class HousesController < ApplicationController
   # PUT /houses/1
   # PUT /houses/1.json
   def update
-    @house = House.find(params[:id])
+    authorize! :update, @house
 
     respond_to do |format|
       if @house.update_attributes(params[:house])
@@ -79,7 +75,7 @@ class HousesController < ApplicationController
   # DELETE /houses/1
   # DELETE /houses/1.json
   def destroy
-    @house = House.find(params[:id])
+    authorize! :destroy, @house
     @house.destroy
 
     respond_to do |format|

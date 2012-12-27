@@ -51,6 +51,7 @@
         <div id="user_nav">
           <% if user_signed_in? %>
             User: <%= current_user.email %>
+            Role: <%= current_user.role.name %>
             <%= link_to "sign out", destroy_user_session_path, :method => "DELETE" %>
           <% else %>
             <%= link_to "sign in", new_user_session_path %> or <%= link_to "sign up", new_user_registration_path %>
