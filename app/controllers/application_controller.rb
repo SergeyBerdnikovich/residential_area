@@ -10,4 +10,16 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message
   end
+
+  def after_sign_in_path_for(resource)
+    resource.role && resource.role.name == 'admin' ? admin_dashboard_path : root_path
+  end
+
+  def authenticate_admin_user!
+    raise SecurityError unless current_user.role.name == 'admin'
+  end
+
+  rescue_from SecurityError do |exception|
+    redirect_to root_path, :alert => exception.message
+  end
 end

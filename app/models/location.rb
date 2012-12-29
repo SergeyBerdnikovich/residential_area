@@ -3,7 +3,7 @@ class Location < ActiveRecord::Base
   belongs_to :head
   belongs_to :partner
 
-  attr_accessible :address, :latitude, :longitude
+  attr_accessible :address, :latitude, :longitude, :name, :house_id, :head_id, :partner_id, :gmaps
 
   acts_as_gmappable
 
