@@ -1,0 +1,4 @@
+<% obj.galleries.each do |gallery| %>
+  <%= image_tag gallery.image.url(:small) %>
+  <%= link_to gallery.image_file_name, gallery.image.url %>
+<% end %>
