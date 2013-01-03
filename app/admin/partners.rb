@@ -35,6 +35,35 @@ ActiveAdmin.register Partner do
              ] do |fm|
       fm.input :number, :for => :phone_numbers
     end
+    f.inputs "Адрес",
+     :for => [:location,
+               if f.object.location
+                 f.object.location
+               else
+                 f.object.build_location
+               end
+             ] do |fm|
+      fm.input :name, :for => :location
+      fm.input :address, :for => :location
+    end
     f.buttons
+  end
+
+  controller do
+    def update
+      location = Location.find_by_partner_id(params[:id])
+      temp_location = Location.create!(:address => params[:partner][:location_attributes][:address],
+                                       :name => params[:partner][:location_attributes][:name])
+      if location
+        location.update_attributes(:address => temp_location.address,
+                                   :longitude => temp_location.longitude,
+                                   :latitude => temp_location.latitude,
+                                   :name => temp_location.name)
+        temp_location.destroy
+      else
+        temp_location.update_attributes(:partner_id => params[:id])
+      end
+      update!
+    end
   end
 end
