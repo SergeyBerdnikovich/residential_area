@@ -1,28 +1,23 @@
 ResidentialArea::Application.routes.draw do
+
+  get "tinymce_assets/create"
+
   ActiveAdmin.routes(self)
 
   devise_for :users, :controllers => { :registrations => "registrations", :sessions => "sessions" }
 
+  post '/tinymce_assets' => 'tinymce_assets#create'
+
   get "pages/contacts"
-
   get "pages/developer"
-
   get "pages/files"
 
+  resources :news
   resources :galleries
-
-
   resources :locations
-
-
   resources :phone_numbers
-
-
   resources :partners
-
-
   resources :heads
-
 
   resources :houses do
     resources :apartments

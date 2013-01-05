@@ -13,4 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require tinymce/tiny_mce
 //= require_tree .
