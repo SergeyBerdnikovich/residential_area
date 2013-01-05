@@ -1,4 +1,18 @@
-<% obj.galleries.each do |gallery| %>
-  <%= image_tag gallery.image.url(:small) %>
-  <%= link_to gallery.image_file_name, gallery.image.url %>
-<% end %>
+<style type="text/css">
+  #gallery {
+    background-color: #111;
+    padding: 0px;
+    width: <%= obj.galleries.size * 80 %>px;
+  }
+</style>
+<div id="gallery">
+    <ul>
+      <% obj.galleries.each do |photo| %>
+        <li>
+            <a href=<%= "#{photo.image.url(:normal)}" %> title=<%= "#{photo.image_file_name}" %>>
+                <%= image_tag photo.image.url(:small) %>
+            </a>
+        </li>
+      <% end %>
+    </ul>
+</div>

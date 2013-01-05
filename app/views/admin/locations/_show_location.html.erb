@@ -1,0 +1,7 @@
+<%= stylesheet_link_tag 'gmaps4rails' %>
+<%= gmaps("markers" => {data: location.to_gmaps4rails},
+          "map_options" =>  { :auto_zoom => false,
+                              :zoom => 15,
+                              :auto_adjust => true,
+                              :language => 'ru' }) if location %>
+<%= yield :scripts %>

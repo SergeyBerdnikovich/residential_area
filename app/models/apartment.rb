@@ -9,4 +9,5 @@ class Apartment < ActiveRecord::Base
                   :residential, :space, :title, :house_id, :galleries_attributes
 
   scope :get_not_residential_apartments, where(:residential => false)
+  scope :get_residential_apartments, where(:residential => true)
 end

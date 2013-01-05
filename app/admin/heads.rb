@@ -16,6 +16,9 @@ ActiveAdmin.register Head do
             li phone_number.number
         end
       end
+      row :location do |head|
+        render :partial => "/admin/locations/show_location", :locals => { :location => head.location }
+      end
     end
     active_admin_comments
   end

@@ -16,4 +16,24 @@ ActiveAdmin.register Location do
     temp_location.destroy
     end
   end
+
+  show do
+    attributes_table do
+      row :id
+      row :name
+      row :address
+      row :longitude
+      row :latitude
+      row :house
+      row :head
+      row :partner
+      row :gmaps
+      row :created_at
+      row :updated_at
+      row :location do |location|
+        render :partial => "show_location", :locals => { :location => location }
+      end
+    end
+    active_admin_comments
+  end
 end

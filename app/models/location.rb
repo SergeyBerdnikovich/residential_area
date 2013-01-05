@@ -11,8 +11,13 @@ class Location < ActiveRecord::Base
     address
   end
   def gmaps4rails_infowindow
-    "<h4>#{ERB::Util.html_escape name}</h4>" << "<h4>#{ERB::Util.html_escape address}</h4>" <<
-     "<img src=\"http://lada.by/kitto/themes/lada/img/infrastructure/i_sport_zal.png\"/>"
+    "<h4>#{ ERB::Util.html_escape name }</h4>" << "<h4>#{ ERB::Util.html_escape address }</h4>" <<
+    if house
+      "<a href=\"/images/gallery/#{ house.galleries.first.id }/normal/#{ house.galleries.first.image_file_name }\">
+        <img src=\"/images/gallery/#{ house.galleries.first.id }/small/#{ house.galleries.first.image_file_name }\"/>
+      </a>" unless house.galleries.blank?
+    else ''
+    end
   end
   def gmaps4rails_title
     "#{ERB::Util.html_escape address}"

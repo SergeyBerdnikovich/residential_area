@@ -16,6 +16,9 @@ ActiveAdmin.register Partner do
             li phone_number.number
         end
       end
+      row :location do |partner|
+        render :partial => "/admin/locations/show_location", :locals => { :location => partner.location }
+      end
     end
     active_admin_comments
   end

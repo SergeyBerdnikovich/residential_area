@@ -40,7 +40,7 @@ ActiveAdmin.register Apartment do
       row :created_at
       row :updated_at
       row :image do |apartment|
-        render :partial => "/admin/galleries/gallery", :locals => { :obj => apartment }
+        render :partial => "/admin/galleries/gallery", :locals => { :obj => apartment } unless apartment.galleries.blank?
       end
     end
     active_admin_comments
