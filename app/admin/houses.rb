@@ -56,7 +56,7 @@ ActiveAdmin.register House do
       row :apartments do |house|
         house.apartments.each do |apartment|
           ul
-            li "Название: #{apartment.title}, Описание: #{apartment.description}"
+            li link_to "Название: #{apartment.title}, Описание: #{apartment.description}", admin_apartment_path(apartment)
         end
       end
       row :image do |house|

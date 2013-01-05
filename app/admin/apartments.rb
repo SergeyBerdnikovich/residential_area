@@ -1,5 +1,9 @@
 # coding: utf-8
 ActiveAdmin.register Apartment do
+  scope :all, :default => true
+  scope :get_residential_apartments
+  scope :get_not_residential_apartments
+
   form :html => { :multipart => true } do |f|
     f.inputs "Дом" do
       f.select("house_id", House.all.collect {|p| [ p.title, p.id ] }, { :include_blank => false })
