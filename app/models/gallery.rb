@@ -14,4 +14,5 @@ class Gallery < ActiveRecord::Base
 
   scope :get_gallery_for_house, ->(house_id) { where('house_id = ?', house_id) }
   scope :get_gallery_for_apartment, ->(apartment_id) { where('apartment_id = ?', apartment_id) }
+  scope :get_gallery_for_news_and_articles, where(:house_id => nil).where(:apartment_id => nil)
 end

@@ -1,3 +1,4 @@
+<%= tinymce_assets %>
 <script type="text/javascript">
 tinyMCE.init({
   theme: 'advanced',
@@ -10,19 +11,7 @@ tinyMCE.init({
 });
 </script>
 
-<%= form_for(@news) do |f| %>
-  <% if @news.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@news.errors.count, "error") %> prohibited this news from being saved:</h2>
-
-      <ul>
-      <% @news.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_for [:admin, @news] do |f| %>
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
@@ -35,3 +24,4 @@ tinyMCE.init({
     <%= f.submit %>
   </div>
 <% end %>
+
