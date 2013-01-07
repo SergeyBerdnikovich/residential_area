@@ -35,7 +35,7 @@
             <ul class="dropdown-menu">
               <li>
                 <% @apartments.each do |apartment| %>
-                  <%= link_to "#{apartment.title}", house_apartments_path(apartment)%>
+                  <%= link_to "#{apartment.title}", house_apartment_path(apartment.house, apartment)%>
                 <% end %>
               </li>
             </ul>
