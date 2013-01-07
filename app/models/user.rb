@@ -19,6 +19,10 @@ class User < ActiveRecord::Base
   private
 
   def define_role
-    Role.first.users << User.last
+    if User.all.size > 1
+      Role.find_by_name('guest').users << User.last
+    else
+      Role.find_by_name('admin').users << User.first
+    end
   end
 end

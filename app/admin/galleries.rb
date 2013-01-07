@@ -1,7 +1,7 @@
 # coding: utf-8
 ActiveAdmin.register Gallery do
   scope :all, :default => true
-  scope :get_gallery_for_news_and_articles
+  scope :get_gallery_for_news
 
   index do
     column :id
