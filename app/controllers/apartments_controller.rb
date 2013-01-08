@@ -17,7 +17,7 @@ class ApartmentsController < ApplicationController
   def show
     @house = House.find(params[:house_id])
     @apartment = Apartment.find(params[:id])
-    @gallery = Gallery.get_gallery_for_apartment(@apartment.id)
+    @gallery = Gallery.for_apartment(@apartment.id)
 
     respond_to do |format|
       format.html # show.html.erb

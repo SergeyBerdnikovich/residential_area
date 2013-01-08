@@ -12,7 +12,7 @@ class Gallery < ActiveRecord::Base
 
   attr_accessible :house_id, :apartment_id, :image
 
-  scope :get_gallery_for_house, ->(house_id) { where('house_id = ?', house_id) }
-  scope :get_gallery_for_apartment, ->(apartment_id) { where('apartment_id = ?', apartment_id) }
-  scope :get_gallery_for_news, where(:house_id => nil).where(:apartment_id => nil)
+  scope :for_house, ->(house_id) { where('house_id = ?', house_id) }
+  scope :for_apartment, ->(apartment_id) { where('apartment_id = ?', apartment_id) }
+  scope :for_news, where(:house_id => nil).where(:apartment_id => nil)
 end

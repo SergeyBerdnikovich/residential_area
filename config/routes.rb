@@ -13,14 +13,13 @@ ResidentialArea::Application.routes.draw do
   get "pages/files"
 
   resources :news
-  resources :galleries
   resources :locations
   resources :phone_numbers
   resources :partners
   resources :heads
 
   resources :houses do
-    resources :apartments
+    resources :apartments, :only => [:index, :show]
   end
 
 

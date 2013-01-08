@@ -1,7 +1,7 @@
 # coding: utf-8
 ActiveAdmin.register Gallery do
   scope :all, :default => true
-  scope :get_gallery_for_news
+  scope :for_news
 
   index do
     column :id
@@ -24,7 +24,7 @@ ActiveAdmin.register Gallery do
       f.select("apartment_id", Apartment.all.collect {|p| [ p.title, p.id ] }, { :include_blank => true })
     end
     f.inputs "Фото", :multipart => true do
-      f.input :image, :as => :file, :hint => f.template.image_tag(f.object.image.url(:thumb))
+      f.input :image, :as => :file, :hint => f.template.image_tag(f.object.image.url)
     end
     f.buttons
   end

@@ -6,13 +6,13 @@
   }
 </style>
 <div id="gallery">
-    <ul>
-      <% obj.galleries.each do |photo| %>
-        <li>
-            <a href=<%= "#{photo.image.url(:normal)}" %> title=<%= "#{photo.image_file_name}" %>>
-                <%= image_tag photo.image.url(:small) %>
-            </a>
-        </li>
-      <% end %>
-    </ul>
+  <ul>
+    <% obj.galleries.each do |photo| %>
+      <li>
+        <a href=<%= "#{photo.image.url(:normal)}" %> title=<%= "#{photo.image_file_name}" %>>
+          <%= image_tag photo.image.url(:small) %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
 </div>
