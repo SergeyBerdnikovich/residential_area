@@ -40,4 +40,18 @@ class Location < ActiveRecord::Base
   def gmaps4rails_sidebar
     "<span class='foo'>#{ERB::Util.json_escape address}</span>"
   end
+
+  def self.update_location(params_obj, obj)
+    temp_location = self.create!(:address => params_obj[:location_attributes][:address],
+                                 :name => params_obj[:location_attributes][:name])
+    if obj.location
+      obj.location.update_attributes(:address => temp_location.address,
+                                     :longitude => temp_location.longitude,
+                                     :latitude => temp_location.latitude,
+                                     :name => temp_location.name)
+      temp_location.destroy
+    else
+      obj.location = temp_location
+    end
+  end
 end

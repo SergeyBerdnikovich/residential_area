@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   end
 
   def developer
+    @heads = Head.all
   end
 
   def files

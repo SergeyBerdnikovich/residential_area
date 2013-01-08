@@ -16,7 +16,6 @@ ResidentialArea::Application.routes.draw do
   resources :locations
   resources :phone_numbers
   resources :partners
-  resources :heads
 
   resources :houses do
     resources :apartments, :only => [:index, :show]
