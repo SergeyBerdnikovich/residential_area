@@ -24,12 +24,6 @@
     <td><%= apartment.number_of_rooms %></td>
     <td><%= apartment.residential %></td>
     <td><%= link_to 'Show', house_apartment_path(@house, apartment) %></td>
-    <td><%= link_to 'Edit', edit_house_apartment_path(@house, apartment) %></td>
-    <td><%= link_to 'Destroy', house_apartment_path(@house, apartment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Apartment', new_house_apartment_path(@house) %>

@@ -1,5 +1,4 @@
 class PagesController < ApplicationController
-  before_filter :init_menu
   def contacts
   end
 
@@ -8,5 +7,8 @@ class PagesController < ApplicationController
   end
 
   def files
+  end
+
+  def welcome
   end
 end

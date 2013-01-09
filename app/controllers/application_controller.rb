@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  before_filter :init_menu
 
   def init_menu
     @completed_houses = House.get_completed_houses

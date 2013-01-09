@@ -1,5 +1,4 @@
 class LocationsController < ApplicationController
-  before_filter :init_menu
   # GET /locations
   # GET /locations.json
   def index

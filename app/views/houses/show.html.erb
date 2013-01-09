@@ -5,22 +5,11 @@
   <%= @house.title if @house %>
 </p>
 
-<p>
-  <b>Description:</b>
-  <%= @house.description if @house%>
-</p>
-
-<p>
-  <b>Address:</b>
-  <%= @location.address if @location %>
-</p>
-
 <%= link_to 'Description', "#" %>
-
+<%= render 'show_description' %>
 <% unless @house.apartments.blank? %>
-  <%= link_to 'Apartmens', house_apartments_path(@house) %>
-<% else %>
-  <%= link_to 'Add apartmens', new_house_apartment_path(@house) %>
+  <%= link_to 'Apartments', house_apartments_path(@house) %><br>
+  <%= render 'show_apartments' %>
 <% end %>
 <br>
 <div id="gallery">
@@ -43,10 +32,4 @@
                             "auto_adjust" => true,
                             "auto_zoom" => false,
                             "language" => 'ru'},) %>
-<% if can? :update, @house %>
-  <%= link_to 'Edit', edit_house_path(@house) %>
-<% end %>
-<% if can? :destroy, @house %>
-  <%= link_to 'Destroy', @house, method: :delete, data: { confirm: 'Are you sure?' } %><br>
-<% end %>
 <%= link_to 'Back', houses_path %>

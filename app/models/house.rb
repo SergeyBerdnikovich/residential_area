@@ -11,6 +11,14 @@ class House < ActiveRecord::Base
   attr_accessible :description, :title, :completed,
                   :location_attributes, :galleries_attributes
 
+  validates :title, :presence => true,
+                    :uniqueness => true,
+                    :length => { :minimum => 4, :maximum => 50 }
+  validates :description, :presence => true
+  validates :completed, :inclusion => { :in => [true, false] }
+  validates_associated :galleries
+  validates_associated :location
+
   scope :get_completed_houses, where(:completed => true)
   scope :get_uncompleted_houses, where(:completed => false)
 end
