@@ -32,8 +32,13 @@ ActiveAdmin.register News do
 
   controller do
     def create
+      params[:news][:content] = News.sanitize_news(params[:news][:content])
       params[:news][:user_id] = current_user.id
       create!
+    end
+    def update
+      params[:news][:content] = News.sanitize_news(params[:news][:content])
+      update!
     end
   end
 end

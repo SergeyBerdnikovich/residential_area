@@ -2,6 +2,14 @@ class News < ActiveRecord::Base
   belongs_to :user
   attr_accessible :content, :title, :user_id
 
+  validates :title, :presence => true,
+                    :uniqueness => true,
+                    :length => { :minimum => 5, :maximum => 50 }
+  validates :content, :presence => true,
+                      :uniqueness => true
+  validates :user_id, :presence => true,
+                      :numericality => true
+
   def self.sanitize_news(news)
     Sanitize.clean(news,
       :elements => %w[
