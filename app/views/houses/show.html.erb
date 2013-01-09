@@ -2,7 +2,7 @@
 
 <p>
   <b>Title:</b>
-  <%= @house.title if @house %>
+  <%= @house.title %>
 </p>
 
 <%= link_to 'Description', "#" %>
@@ -24,12 +24,9 @@
     </ul>
 </div>
 <br>
-<%= gmaps("markers" => {"data" => @json,
-                        "options" => { "picture" => ActionController::Base.helpers.asset_path('kafe.png'),
-                                       "width" => 60,
-                                       "length" => 60 } },
-          "map_options" => {"zoom" => 15,
-                            "auto_adjust" => true,
-                            "auto_zoom" => false,
-                            "language" => 'ru'},) %>
+<%= gmaps("markers" => { "data" => @json },
+          "map_options" => { "zoom" => 15,
+                             "auto_adjust" => true,
+                             "auto_zoom" => false,
+                             "language" => 'ru' },) %>
 <%= link_to 'Back', houses_path %>

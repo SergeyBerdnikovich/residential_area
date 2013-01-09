@@ -13,7 +13,6 @@ ResidentialArea::Application.routes.draw do
   get "pages/files"
 
   resources :news
-  resources :locations
   resources :phone_numbers
   resources :partners
 
