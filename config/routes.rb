@@ -9,7 +9,6 @@ ResidentialArea::Application.routes.draw do
   get "pages/files"
 
   resources :news, :only => [:index, :show]
-  resources :phone_numbers
   resources :partners, :only => :show
   resources :heads, :only => :show
   resources :tinymce_assets, :only => :create
