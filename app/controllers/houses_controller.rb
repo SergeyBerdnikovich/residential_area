@@ -3,7 +3,7 @@ class HousesController < ApplicationController
   # GET /houses/1.json
   def show
     @house = House.find(params[:id])
-    @location = Location.find_by_house_id(@house.id)
+    @location = Location.find_by_house_id(@house)
     @json = @location.to_gmaps4rails if @location
     @gallery = Gallery.for_house(@house.id)
 

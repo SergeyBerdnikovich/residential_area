@@ -1,0 +1,16 @@
+<table class="table table-bordered">
+  <tr>
+    <th>title</th>
+    <th>description</th>
+    <th>Phone numbers</th>
+  </tr>
+  <% @partners.each do |partner| %>
+    <tr>
+      <td><%= link_to partner.title, partner %></td>
+      <td><%= partner.description %></td>
+      <td><% partner.phone_numbers.each do |phone_number| %>
+        <%= phone_number.number %><br>
+      <% end %></td>
+    </tr>
+  <% end %>
+</table>

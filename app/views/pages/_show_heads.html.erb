@@ -6,7 +6,7 @@
   </tr>
   <% @heads.each do |head| %>
     <tr>
-      <td><%= head.full_name %></td>
+      <td><%= link_to head.full_name, head %></td>
       <td><%= head.position %></td>
       <td><% head.phone_numbers.each do |phone_number| %>
         <%= phone_number.number %><br>

@@ -10,7 +10,8 @@ ResidentialArea::Application.routes.draw do
 
   resources :news, :only => [:index, :show]
   resources :phone_numbers
-  resources :partners
+  resources :partners, :only => :show
+  resources :heads, :only => :show
   resources :tinymce_assets, :only => :create
 
   resources :houses, :only => :show do

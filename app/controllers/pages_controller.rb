@@ -4,6 +4,7 @@ class PagesController < ApplicationController
 
   def developer
     @heads = Head.all
+    @partners = Partner.all
   end
 
   def files

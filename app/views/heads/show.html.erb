@@ -1,0 +1,20 @@
+<table class="table table-bordered">
+  <tr>
+    <th>Full name</th>
+    <th>Position</th>
+    <th>Phone numbers</th>
+    <th>Address</th>
+  </tr>
+    <td><%= @head.full_name %></td>
+    <td><%= @head.position %></td>
+    <td><% @head.phone_numbers.each do |phone_number| %>
+      <%= phone_number.number %><br>
+    <% end %></td>
+    <td><%= @head.location.address if @head.location %></td>
+  </tr>
+</table>
+<%= gmaps("markers" => { "data" => @json },
+          "map_options" => { "zoom" => 15,
+                             "auto_adjust" => true,
+                             "auto_zoom" => false,
+                             "language" => 'ru' },) if @json %>

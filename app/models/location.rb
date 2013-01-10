@@ -6,7 +6,6 @@ class Location < ActiveRecord::Base
   attr_accessible :address, :latitude, :longitude, :name, :house_id, :head_id, :partner_id, :gmaps
 
   validates :name, :presence => true,
-                   :uniqueness => true,
                    :length => { :minimum => 3, :maximum => 20 }
   validates :address, :presence => true,
                       :length => { :minimum => 3, :maximum => 50 }
@@ -38,7 +37,8 @@ class Location < ActiveRecord::Base
 
   def self.update_location(params_obj, obj)
     temp_location = self.create!(:address => params_obj[:location_attributes][:address],
-                                 :name => params_obj[:location_attributes][:name])
+                                 :name => params_obj[:location_attributes][:name],
+                                 :gmaps => false)
     if obj.location
       obj.location.update_attributes(:address => temp_location.address,
                                      :longitude => temp_location.longitude,

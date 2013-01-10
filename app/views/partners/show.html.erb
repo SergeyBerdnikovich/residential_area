@@ -16,7 +16,13 @@
     <%= phone_number.number %><br>
   <% end %>
 </p>
-<%= gmaps4rails(@json) if @json %><br>
 
-<%= link_to 'Edit', edit_partner_path(@partner) %> |
-<%= link_to 'Back', partners_path %>
+<p>
+  <b>Address:</b>
+  <%= @partner.location.address if @partner.location %>
+</p>
+<%= gmaps("markers" => { "data" => @json },
+          "map_options" => { "zoom" => 15,
+                             "auto_adjust" => true,
+                             "auto_zoom" => false,
+                             "language" => 'ru' },) if @json %>
