@@ -9,7 +9,7 @@ ActiveAdmin.register Role do
 
   show do
     div do
-      User.find_all_by_role_id(role.id).each do |user|
+      User.find_all_by_role_id(role).each do |user|
         ul
           li "Имя: #{user.name}, Эл. почта: #{user.email}"
       end

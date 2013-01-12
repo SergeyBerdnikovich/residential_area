@@ -13,14 +13,23 @@ gem 'sqlite3'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  #gem 'therubyracer', :platforms => :ruby
-
   gem 'uglifier', '>= 1.0.3'
   gem 'less-rails'
   gem 'therubyracer'
   gem 'twitter-bootstrap-rails'
+end
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'simplecov', :require => false
+  gem 'database_cleaner'
+end
+
+group :test do
+  gem "shoulda-matchers"
+  gem 'spork'
 end
 
 gem 'jquery-rails'
