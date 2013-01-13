@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe Apartment do
   describe "validates" do
-    before { @apartment = create(:apartment) }
+    let(:apartment) { create(:apartment) }
+    subject { apartment }
 
     it { should validate_presence_of(:house_id) }
     it { should have_db_index(:house_id) }
@@ -11,12 +12,12 @@ describe Apartment do
     it { should allow_value(1).for(:house_id) }
     it { should validate_uniqueness_of(:title) }
     it { should validate_presence_of(:title) }
-    it { @apartment.title.should have_at_most(50).characters }
-    it { @apartment.title.should have_at_least(4).characters }
+    its(:title) { should have_at_most(50).characters }
+    its(:title) { should have_at_least(4).characters }
     it { should validate_presence_of(:description) }
-    it { (1..9_999_999_999).should include @apartment.cost }
-    it { (1..9_999).should include @apartment.space }
-    it { (1..99).should include @apartment.number_of_rooms }
+    its(:cost) { should be > 0 and should be < 9_999_999_999 }
+    its(:space) { should be > 0 and should be < 9_999 }
+    its(:number_of_rooms) { should be > 0 and should be < 99 }
     it { should_not allow_value(nil).for(:residential) }
     it { should belong_to(:house) }
     it { should have_many(:galleries) }

@@ -282,16 +282,16 @@
         1,
         null,
         1,
-        0,
+        1,
         null,
         null,
         1,
         null,
         1,
-        0,
-        0,
+        18,
+        9,
         null,
-        0,
+        9,
         null,
         null,
         null
@@ -462,6 +462,7 @@
         null,
         1,
         null,
+        null,
         null
       ],
       "/home/at0m/Projects/residential_area/app/models/house.rb": [
@@ -493,6 +494,6 @@
         null
       ]
     },
-    "timestamp": 1358080840
+    "timestamp": 1358091084
   }
 }
