@@ -4,5 +4,6 @@ class Role < ActiveRecord::Base
   attr_accessible :name
 
   validates :name, :presence => true,
+                   :uniqueness => true,
                    :length => { :minimum => 2, :maximum => 20 }
 end
