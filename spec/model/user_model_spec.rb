@@ -16,7 +16,7 @@ describe User do
     it { should belong_to(:role) }
   end
   describe 'role methods' do
-    it 'user has role admin' do
+    it "method 'role?' return true if user role is admin" do
       User.first.role?(:admin).should be true
     end
     it 'first user role is admin' do
