@@ -11,10 +11,7 @@ describe House do
     it { should_not allow_value(nil).for(:completed) }
     it { should have_one(:location) }
     it { should have_many(:galleries) }
-    it { should accept_nested_attributes_for(:galleries).and_accept({ :image => create(:gallery).image })
-                                                        .but_reject({ :reject_if_nil => nil }) }
-    xit { should accept_nested_attributes_for(:location).and_accept({ :address=> 'Rafieva 40, Minsk',
-                                                                     :name => 'dom' })
-                                                       .but_reject({ :reject_if_nil => nil }) }
+    it { should accept_nested_attributes_for(:galleries) }
+    it { should accept_nested_attributes_for(:location) }
   end
 end

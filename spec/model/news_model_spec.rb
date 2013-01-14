@@ -12,9 +12,6 @@ describe News do
     it { should validate_numericality_of(:user_id) }
     it { should validate_presence_of(:user_id) }
     it { should belong_to(:user) }
-
-    its(:content) 'news content should be filtered with sanitize_news(content)' do
-      News.sanitize_news(subject).should_not == subject
-    end
+    its(:content) { should_not == News.sanitize_news(subject) }
   end
 end

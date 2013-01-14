@@ -19,7 +19,6 @@ describe Apartment do
     it { should_not allow_value(nil).for(:residential) }
     it { should belong_to(:house) }
     it { should have_many(:galleries) }
-    it { should accept_nested_attributes_for(:galleries).and_accept({ :image => create(:gallery).image })
-                                                        .but_reject({ :reject_if_nil => nil }) }
+    it { should accept_nested_attributes_for(:galleries) }
   end
 end

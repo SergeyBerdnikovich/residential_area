@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Role do
   describe "validates" do
-    before { create(:role) }
+    subject { create(:role) }
 
     it { should validate_presence_of(:name) }
     it { should validate_uniqueness_of(:name) }
