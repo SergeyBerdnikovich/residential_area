@@ -1,8 +1,10 @@
 require 'spec_helper'
 
 describe User do
-  let(:second_user) { create(:user, :name => 'Sasha') }
-  before { @first_user = create(:user) }
+  before do
+    @first_user = create(:user)
+    @second_user = create(:user, :name => 'Sergey')
+  end
 
   describe 'validates' do
     it { should have_db_index(:role_id) }
@@ -22,7 +24,7 @@ describe User do
     end
 
     it 'second user role is guest' do
-      second_user.role.name.should == 'guest'
+      @second_user.role.name.should == 'guest'
     end
   end
 end

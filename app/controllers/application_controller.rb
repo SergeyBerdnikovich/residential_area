@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    resource.role && resource.role.name == 'admin' ? admin_dashboard_path : root_path
+    resource.role && resource.role?(:admin) ? admin_dashboard_path : root_path
   end
 
   def authenticate_admin_user!

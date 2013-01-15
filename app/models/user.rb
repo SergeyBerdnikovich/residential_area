@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   validates :name, :presence => true,
                    :length => { :minimum => 2, :maximum => 20 }
 
-  after_create :define_role
+  before_create :define_role
 
   def role?(role)
     self.role && self.role.name == role.to_s
@@ -18,10 +18,10 @@ class User < ActiveRecord::Base
   private
 
   def define_role
-    if User.all.size > 1
-      User.last.role = Role.find_or_create_by_name('guest')
+    if User.first
+      self.role = Role.find_or_create_by_name('guest')
     else
-      User.last.role = Role.find_or_create_by_name('admin')
+      self.role = Role.find_or_create_by_name('admin')
     end
   end
 end

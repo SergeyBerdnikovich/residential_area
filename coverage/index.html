@@ -14,7 +14,7 @@
       <img src="./assets/0.7.1/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2013-01-15T21:47:24+03:00">2013-01-15T21:47:24+03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2013-01-15T23:08:21+03:00">2013-01-15T23:08:21+03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,7 +25,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.07
+         1.1
        </span>
     </span> hits/line)
   </h2>
@@ -347,7 +347,7 @@
         <td>13</td>
         <td>13</td>
         <td>0</td>
-        <td>2.5</td>
+        <td>3.5</td>
       </tr>
       
     </tbody>
@@ -480,7 +480,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.02
+         1.11
        </span>
     </span> hits/line)
   </h2>
@@ -612,7 +612,7 @@
         <td>13</td>
         <td>13</td>
         <td>0</td>
-        <td>2.5</td>
+        <td>3.5</td>
       </tr>
       
     </tbody>
@@ -1132,7 +1132,7 @@
         <li class="missed" data-hits="0" data-linenumber="16">
           
           
-          <code class="ruby">    resource.role &amp;&amp; resource.role.name == 'admin' ? admin_dashboard_path : root_path</code>
+          <code class="ruby">    resource.role &amp;&amp; resource.role?(:admin) ? admin_dashboard_path : root_path</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="17">
@@ -3886,7 +3886,7 @@
         <li class="covered" data-hits="1" data-linenumber="12">
           <span class="hits">1</span>
           
-          <code class="ruby">  after_create :define_role</code>
+          <code class="ruby">  before_create :define_role</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="13">
@@ -3937,16 +3937,16 @@
           <code class="ruby">  def define_role</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="21">
-          <span class="hits">11</span>
+        <li class="covered" data-hits="18" data-linenumber="21">
+          <span class="hits">18</span>
           
-          <code class="ruby">    if User.all.size &gt; 1</code>
+          <code class="ruby">    if User.first</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="22">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="8" data-linenumber="22">
+          <span class="hits">8</span>
           
-          <code class="ruby">      User.last.role = Role.find_or_create_by_name('guest')</code>
+          <code class="ruby">      self.role = Role.find_or_create_by_name('guest')</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="23">
@@ -3958,7 +3958,7 @@
         <li class="covered" data-hits="10" data-linenumber="24">
           <span class="hits">10</span>
           
-          <code class="ruby">      User.last.role = Role.find_or_create_by_name('admin')</code>
+          <code class="ruby">      self.role = Role.find_or_create_by_name('admin')</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="25">
