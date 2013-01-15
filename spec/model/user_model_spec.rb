@@ -1,12 +1,9 @@
 require 'spec_helper'
 
 describe User do
-  before do
-   create(:role)
-   create(:role, :name => 'admin')
-   create(:user)
-   create(:user, :name => 'Sasha')
-  end
+  let(:second_user) { create(:user, :name => 'Sasha') }
+  before { @first_user = create(:user) }
+
   describe 'validates' do
     it { should have_db_index(:role_id) }
     it { should have_db_index(:email) }
@@ -14,15 +11,18 @@ describe User do
     it { should ensure_length_of(:name).is_at_least(2).is_at_most(20) }
     it { should belong_to(:role) }
   end
+
   describe 'role methods' do
     it "method 'role?' return true if user role is admin" do
-      User.first.role?(:admin).should be true
+      @first_user.role?(:admin).should be true
     end
+
     it 'first user role is admin' do
-      User.first.role.name.should == 'admin'
+      @first_user.role.name.should == 'admin'
     end
+
     it 'second user role is guest' do
-      User.last.role.name.should == 'guest'
+      second_user.role.name.should == 'guest'
     end
   end
 end

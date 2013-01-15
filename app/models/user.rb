@@ -19,9 +19,9 @@ class User < ActiveRecord::Base
 
   def define_role
     if User.all.size > 1
-      Role.find_by_name('guest').users << User.last
+      User.last.role = Role.find_or_create_by_name('guest')
     else
-      Role.find_by_name('admin').users << User.first
+      User.last.role = Role.find_or_create_by_name('admin')
     end
   end
 end
