@@ -24,5 +24,14 @@ describe Location do
     it 'address length should be at least 3 and at most 20', :vcr do
       should ensure_length_of(:address).is_at_least(3).is_at_most(50)
     end
+    it 'gmaps4rails_address return address' do
+      subject.gmaps4rails_address.should == subject.address
+    end
+    it 'gmaps4rails_title return address' do
+      subject.gmaps4rails_title.should == subject.address
+    end
+    it 'gmaps4rails_sidebar return address' do
+      subject.gmaps4rails_sidebar.should == "<span class='foo'>#{subject.address}</span>"
+    end
   end
 end
