@@ -23,9 +23,9 @@
         1,
         null,
         1,
-        4,
-        4,
-        4,
+        5,
+        5,
+        5,
         null,
         null,
         1,
@@ -68,7 +68,7 @@
       "/home/at0m/Projects/residential_area/app/controllers/news_controller.rb": [
         1,
         1,
-        0,
+        1,
         null,
         null
       ],
@@ -494,6 +494,6 @@
         null
       ]
     },
-    "timestamp": 1358250214
+    "timestamp": 1358250340
   }
 }
