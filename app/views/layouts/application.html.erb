@@ -36,7 +36,7 @@
               <li>
                 <% @apartments.each do |apartment| %>
                   <%= link_to "#{apartment.title}", house_apartment_path(apartment.house, apartment)%>
-                <% end %>
+                <% end if @apartments %>
               </li>
             </ul>
           </li>

@@ -9,8 +9,6 @@ class Location < ActiveRecord::Base
                    :length => { :minimum => 3, :maximum => 20 }
   validates :address, :presence => true,
                       :length => { :minimum => 3, :maximum => 50 }
-  validates :gmaps, :inclusion => { :in => [true, false] }
-
   acts_as_gmappable
 
   def gmaps4rails_address
@@ -19,10 +17,10 @@ class Location < ActiveRecord::Base
 
   def gmaps4rails_infowindow
     "<h4>#{ ERB::Util.html_escape name }</h4>" << "<h4>#{ ERB::Util.html_escape address }</h4>" <<
-    if house
+    if house && house.galleries.size > 0
       "<a href=\"/images/gallery/#{ house.galleries.first.id }/normal/#{ house.galleries.first.image_file_name }\">
         <img src=\"/images/gallery/#{ house.galleries.first.id }/small/#{ house.galleries.first.image_file_name }\"/>
-      </a>" unless house.galleries.blank?
+      </a>"
     else ''
     end
   end

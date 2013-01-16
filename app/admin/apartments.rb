@@ -26,7 +26,7 @@ ActiveAdmin.register Apartment do
              ] do |fm|
       fm.input :image, :as => :file, :hint => fm.template.image_tag(fm.object.image.url(:thumb))
     end
-    f.buttons
+    f.actions
   end
 
   show do

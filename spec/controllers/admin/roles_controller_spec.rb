@@ -16,7 +16,7 @@ describe Admin::RolesController do
   end
 
   describe "GET 'show'" do
-    it 'current path should be admin_roles_path(@role)' do
+    it 'current path should be admin_roles_path(role)' do
       visit admin_role_path(role)
       current_path.should == admin_role_path(role)
     end

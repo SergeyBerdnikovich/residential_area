@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
   def init_menu
     @completed_houses = House.get_completed_houses
     @uncompleted_houses = House.get_uncompleted_houses
-    @apartments = Apartment.get_not_residential_apartments
-  end
+    @apartments = Apartment.get_not_residential_apartments if Apartment.first
+   end
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message
