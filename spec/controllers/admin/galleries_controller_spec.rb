@@ -39,22 +39,20 @@ describe Admin::GalleriesController do
   end
 
   describe "GET 'show'" do
-    it 'current path should be admin_apartment_path(apartment)' do
+    it 'page should have content "Gallery #1"' do
 
       visit admin_gallery_path(gallery)
-      page.should have_content("Gallery ##{gallery.id}")
 
-      current_path.should == admin_gallery_path(gallery)
+      page.should have_content("Gallery ##{gallery.id}")
     end
   end
 
   describe "GET 'index'" do
-    it 'current path should be admin_galleries_path' do
+    it 'page should have content "Galleries"' do
 
       visit admin_galleries_path
-      page.should have_content("Galleries")
 
-      current_path.should == admin_galleries_path
+      page.should have_content("Galleries")
     end
   end
 end

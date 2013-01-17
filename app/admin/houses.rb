@@ -43,7 +43,7 @@ ActiveAdmin.register House do
       fm.input :name, :for => :location
       fm.input :address, :for => :location
     end
-    f.buttons
+    f.actions
   end
 
   show do

@@ -40,12 +40,11 @@ describe Admin::HeadsController do
   end
 
   describe "GET 'show'" do
-    it 'current path should be admin_head_path(head)' do
+    it 'page should have content "Head Details"' do
 
       visit admin_head_path(head)
-      page.should have_content("Head Details")
 
-      current_path.should == admin_head_path(head)
+      page.should have_content("Head Details")
     end
   end
 end

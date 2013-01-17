@@ -49,12 +49,11 @@ describe Admin::ApartmentsController do
   end
 
   describe "GET 'show'" do
-    it 'current path should be admin_apartment_path(apartment)' do
+    it 'page should have content "Apartment Details"' do
 
       visit admin_apartment_path(apartment)
-      page.should have_content("Apartment Details")
 
-      current_path.should == admin_apartment_path(apartment)
+      page.should have_content("Apartment Details")
     end
   end
 end
