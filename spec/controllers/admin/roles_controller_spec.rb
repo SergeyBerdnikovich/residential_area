@@ -2,22 +2,29 @@ require 'spec_helper'
 include Warden::Test::Helpers
 
 describe Admin::RolesController do
-  let(:role) { create(:role) }
+  render_views
+
   before do
     login_as create(:user)
+    @role = create(:role)
   end
 
   describe "GET 'index'" do
-    it 'current path should be admin_roles_path' do
+    it 'page should have content "Roles"' do
+
       visit admin_roles_path
-      current_path.should == admin_roles_path
+
+      page.should have_content("Roles")
     end
   end
 
   describe "GET 'show'" do
-    it 'current path should be admin_roles_path(role)' do
-      visit admin_role_path(role)
-      current_path.should == admin_role_path(role)
+    it 'page should have content "Role Details"' do
+
+      create(:user, :name => 'Vasya')
+      visit admin_role_path(@role)
+
+      page.should have_content("#{@role.name}")
     end
   end
 end

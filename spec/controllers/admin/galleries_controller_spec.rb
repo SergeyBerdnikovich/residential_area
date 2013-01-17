@@ -50,6 +50,7 @@ describe Admin::GalleriesController do
   describe "GET 'index'" do
     it 'page should have content "Galleries"' do
 
+      gallery
       visit admin_galleries_path
 
       page.should have_content("Galleries")
