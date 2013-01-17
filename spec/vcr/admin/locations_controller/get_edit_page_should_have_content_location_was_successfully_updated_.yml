@@ -1,0 +1,137 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://maps.googleapis.com/maps/api/geocode/json?address=Rafieva%2040,%20Minsk&language=en&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 17 Jan 2013 12:46:51 GMT
+      Expires:
+      - Fri, 18 Jan 2013 12:46:51 GMT
+      Cache-Control:
+      - public, max-age=86400
+      Access-Control-Allow-Origin:
+      - ! '*'
+      Server:
+      - mafe
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: US-ASCII
+      string: ! "{\n   \"results\" : [\n      {\n         \"address_components\" :
+        [\n            {\n               \"long_name\" : \"40\",\n               \"short_name\"
+        : \"40\",\n               \"types\" : [ \"street_number\" ]\n            },\n
+        \           {\n               \"long_name\" : \"Vulica Rafieva\",\n               \"short_name\"
+        : \"Vulica Rafieva\",\n               \"types\" : [ \"route\" ]\n            },\n
+        \           {\n               \"long_name\" : \"Maskowski Rayon\",\n               \"short_name\"
+        : \"Maskowski Rayon\",\n               \"types\" : [ \"sublocality\", \"political\"
+        ]\n            },\n            {\n               \"long_name\" : \"Minsk\",\n
+        \              \"short_name\" : \"Minsk\",\n               \"types\" : [ \"locality\",
+        \"political\" ]\n            },\n            {\n               \"long_name\"
+        : \"Minski Rayon\",\n               \"short_name\" : \"Minski Rayon\",\n               \"types\"
+        : [ \"administrative_area_level_2\", \"political\" ]\n            },\n            {\n
+        \              \"long_name\" : \"Minsk Province\",\n               \"short_name\"
+        : \"Minsk Province\",\n               \"types\" : [ \"administrative_area_level_1\",
+        \"political\" ]\n            },\n            {\n               \"long_name\"
+        : \"Belarus\",\n               \"short_name\" : \"BY\",\n               \"types\"
+        : [ \"country\", \"political\" ]\n            }\n         ],\n         \"formatted_address\"
+        : \"Vulica Rafieva 40, Minsk, Belarus\",\n         \"geometry\" : {\n            \"bounds\"
+        : {\n               \"northeast\" : {\n                  \"lat\" : 53.86623440,\n
+        \                 \"lng\" : 27.45213980\n               },\n               \"southwest\"
+        : {\n                  \"lat\" : 53.86556140,\n                  \"lng\" :
+        27.45170910\n               }\n            },\n            \"location\" :
+        {\n               \"lat\" : 53.86597590,\n               \"lng\" : 27.45188550\n
+        \           },\n            \"location_type\" : \"APPROXIMATE\",\n            \"viewport\"
+        : {\n               \"northeast\" : {\n                  \"lat\" : 53.86724688029150,\n
+        \                 \"lng\" : 27.45327343029150\n               },\n               \"southwest\"
+        : {\n                  \"lat\" : 53.86454891970850,\n                  \"lng\"
+        : 27.45057546970850\n               }\n            }\n         },\n         \"partial_match\"
+        : true,\n         \"types\" : []\n      }\n   ],\n   \"status\" : \"OK\"\n}\n"
+    http_version: 
+  recorded_at: Thu, 17 Jan 2013 12:46:51 GMT
+- request:
+    method: get
+    uri: http://maps.googleapis.com/maps/api/geocode/json?address=%D0%91%D0%B5%D0%B4%D1%8B%204,%20%D0%9C%D0%B8%D0%BD%D1%81%D0%BA&language=en&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 17 Jan 2013 12:46:52 GMT
+      Expires:
+      - Fri, 18 Jan 2013 12:46:52 GMT
+      Cache-Control:
+      - public, max-age=86400
+      Access-Control-Allow-Origin:
+      - ! '*'
+      Server:
+      - mafe
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: US-ASCII
+      string: ! "{\n   \"results\" : [\n      {\n         \"address_components\" :
+        [\n            {\n               \"long_name\" : \"4\",\n               \"short_name\"
+        : \"4\",\n               \"types\" : [ \"street_number\" ]\n            },\n
+        \           {\n               \"long_name\" : \"L. Bedy St\",\n               \"short_name\"
+        : \"L. Bedy St\",\n               \"types\" : [ \"route\" ]\n            },\n
+        \           {\n               \"long_name\" : \"Savyetski Rayon\",\n               \"short_name\"
+        : \"Savyetski Rayon\",\n               \"types\" : [ \"sublocality\", \"political\"
+        ]\n            },\n            {\n               \"long_name\" : \"Minsk\",\n
+        \              \"short_name\" : \"Minsk\",\n               \"types\" : [ \"locality\",
+        \"political\" ]\n            },\n            {\n               \"long_name\"
+        : \"Minski Rayon\",\n               \"short_name\" : \"Minski Rayon\",\n               \"types\"
+        : [ \"administrative_area_level_2\", \"political\" ]\n            },\n            {\n
+        \              \"long_name\" : \"Minsk Province\",\n               \"short_name\"
+        : \"Minsk Province\",\n               \"types\" : [ \"administrative_area_level_1\",
+        \"political\" ]\n            },\n            {\n               \"long_name\"
+        : \"Belarus\",\n               \"short_name\" : \"BY\",\n               \"types\"
+        : [ \"country\", \"political\" ]\n            }\n         ],\n         \"formatted_address\"
+        : \"L. Bedy St 4, Minsk, Belarus\",\n         \"geometry\" : {\n            \"bounds\"
+        : {\n               \"northeast\" : {\n                  \"lat\" : 53.93063050000001,\n
+        \                 \"lng\" : 27.5896390\n               },\n               \"southwest\"
+        : {\n                  \"lat\" : 53.92977930,\n                  \"lng\" :
+        27.58824160\n               }\n            },\n            \"location\" :
+        {\n               \"lat\" : 53.93019320,\n               \"lng\" : 27.5889380\n
+        \           },\n            \"location_type\" : \"APPROXIMATE\",\n            \"viewport\"
+        : {\n               \"northeast\" : {\n                  \"lat\" : 53.93155388029150,\n
+        \                 \"lng\" : 27.59028928029150\n               },\n               \"southwest\"
+        : {\n                  \"lat\" : 53.92885591970850,\n                  \"lng\"
+        : 27.58759131970850\n               }\n            }\n         },\n         \"partial_match\"
+        : true,\n         \"types\" : []\n      }\n   ],\n   \"status\" : \"OK\"\n}\n"
+    http_version: 
+  recorded_at: Thu, 17 Jan 2013 12:46:52 GMT
+recorded_with: VCR 2.4.0
