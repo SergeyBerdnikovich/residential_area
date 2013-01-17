@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   def init_menu
     @completed_houses = House.get_completed_houses
     @uncompleted_houses = House.get_uncompleted_houses
-    @apartments = Apartment.get_not_residential_apartments if Apartment.first
+    @not_residential_apartments = Apartment.get_not_residential_apartments
    end
 
   rescue_from CanCan::AccessDenied do |exception|

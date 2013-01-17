@@ -26,7 +26,7 @@ ActiveAdmin.register Gallery do
     f.inputs "Фото", :multipart => true do
       f.input :image, :as => :file, :hint => f.template.image_tag(f.object.image.url)
     end
-    f.buttons
+    f.actions
   end
 
   show do

@@ -1,7 +1,6 @@
 require 'spec_helper'
 include Warden::Test::Helpers
 
-
 describe Admin::RolesController do
   let(:role) { create(:role) }
   before do

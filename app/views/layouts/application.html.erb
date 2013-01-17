@@ -34,9 +34,9 @@
             <a tabindex="-1" href="#"><i class="icon-home"></i>Комерческие объекты</a>
             <ul class="dropdown-menu">
               <li>
-                <% @apartments.each do |apartment| %>
+                <% @not_residential_apartments.each do |apartment| %>
                   <%= link_to "#{apartment.title}", house_apartment_path(apartment.house, apartment)%>
-                <% end if @apartments %>
+                <% end %>
               </li>
             </ul>
           </li>
