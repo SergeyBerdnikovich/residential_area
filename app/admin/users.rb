@@ -20,6 +20,6 @@ ActiveAdmin.register User do
       f.input :password, :label => "Пароль"
       f.input :name, :label => "Имя"
     end
-    f.buttons
+    f.actions
   end
 end

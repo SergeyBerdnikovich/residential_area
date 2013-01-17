@@ -50,7 +50,7 @@ ActiveAdmin.register Partner do
       fm.input :name, :for => :location
       fm.input :address, :for => :location
     end
-    f.buttons
+    f.actions
   end
 
   controller do
