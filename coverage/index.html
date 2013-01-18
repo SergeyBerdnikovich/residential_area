@@ -14,26 +14,26 @@
       <img src="./assets/0.7.1/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2013-01-18T13:58:41+03:00">2013-01-18T13:58:41+03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2013-01-18T19:59:42+03:00">2013-01-18T19:59:42+03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">99.61%</span></span>
+    (<span class="covered_percent"><span class="green">99.6%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.34
+         2.33
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>41</b> files in total.
-    <b>509</b> relevant lines. 
-    <span class="green"><b>507</b> lines covered</span> and
+    <b>506</b> relevant lines. 
+    <span class="green"><b>504</b> lines covered</span> and
     <span class="red"><b>2</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -103,11 +103,11 @@
       <tr>
         <td class="strong"><a href="#a01f57d56f5a2b0d761a77a0b015e198dbc91d3a" class="src_link" title="app/admin/locations.rb">app/admin/locations.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>36</td>
-        <td>25</td>
-        <td>25</td>
+        <td>30</td>
+        <td>22</td>
+        <td>22</td>
         <td>0</td>
-        <td>1.6</td>
+        <td>1.7</td>
       </tr>
       
       <tr>
@@ -407,7 +407,7 @@
         <td>24</td>
         <td>24</td>
         <td>0</td>
-        <td>4.2</td>
+        <td>3.4</td>
       </tr>
       
       <tr>
@@ -473,15 +473,15 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.36
+         2.37
        </span>
     </span> hits/line)
   </h2>
   <a name="Admin"></a>
   <div>
     <b>11</b> files in total.
-    <b>295</b> relevant lines. 
-    <span class="green"><b>295</b> lines covered</span> and
+    <b>292</b> relevant lines. 
+    <span class="green"><b>292</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -551,11 +551,11 @@
       <tr>
         <td class="strong"><a href="#a01f57d56f5a2b0d761a77a0b015e198dbc91d3a" class="src_link" title="app/admin/locations.rb">app/admin/locations.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>36</td>
-        <td>25</td>
-        <td>25</td>
+        <td>30</td>
+        <td>22</td>
+        <td>22</td>
         <td>0</td>
-        <td>1.6</td>
+        <td>1.7</td>
       </tr>
       
       <tr>
@@ -737,7 +737,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.55
+         2.47
        </span>
     </span> hits/line)
   </h2>
@@ -819,7 +819,7 @@
         <td>24</td>
         <td>24</td>
         <td>0</td>
-        <td>4.2</td>
+        <td>3.4</td>
       </tr>
       
       <tr>
@@ -2391,7 +2391,7 @@
         <li class="covered" data-hits="2" data-linenumber="59">
           <span class="hits">2</span>
           
-          <code class="ruby">      Location.update_location(params[:head], head)</code>
+          <code class="ruby">      Location.delay.update_location(params[:head], head)</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="60">
@@ -2943,8 +2943,8 @@
     <h3>app/admin/locations.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>25</b> relevant lines. 
-      <span class="green"><b>25</b> lines covered</span> and
+      <b>22</b> relevant lines. 
+      <span class="green"><b>22</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -2955,214 +2955,178 @@
         <li class="covered" data-hits="1" data-linenumber="1">
           <span class="hits">1</span>
           
-          <code class="ruby">ActiveAdmin.register Location do</code>
+          <code class="ruby">require 'update_location_job'</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="2">
           <span class="hits">1</span>
           
-          <code class="ruby">  controller do</code>
+          <code class="ruby">ActiveAdmin.register Location do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">    def update</code>
+          <code class="ruby">  controller do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
-          <code class="ruby">      location = Location.find(params[:id])</code>
+          <code class="ruby">    def update</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
-          <code class="ruby">      temp_location = Location.create!(:address =&gt; params[:location][:address],</code>
+          <code class="ruby">      Delayed::Job.enqueue(UpdateLocationJob.new(params[:id], params[:location]))</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="6">
-          
-          
-          <code class="ruby">                                       :name =&gt; params[:location][:name],</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="7">
-          
-          
-          <code class="ruby">                                       :gmaps =&gt; false)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="8">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      params[:location][:latitude] = temp_location.latitude</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="9">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      params[:location][:longitude] = temp_location.longitude</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="10">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="11">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      temp_location.destroy</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="12">
+        <li class="covered" data-hits="1" data-linenumber="6">
           <span class="hits">1</span>
           
           <code class="ruby">      update!</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="13">
+        <li class="never" data-hits="" data-linenumber="7">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="14">
+        <li class="never" data-hits="" data-linenumber="8">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="15">
+        <li class="never" data-hits="" data-linenumber="9">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="16">
+        <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
           <code class="ruby">  show do</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="17">
+        <li class="covered" data-hits="2" data-linenumber="11">
           <span class="hits">2</span>
           
           <code class="ruby">    attributes_table do</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="18">
+        <li class="covered" data-hits="2" data-linenumber="12">
           <span class="hits">2</span>
           
           <code class="ruby">      row :id</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="19">
+        <li class="covered" data-hits="2" data-linenumber="13">
           <span class="hits">2</span>
           
           <code class="ruby">      row :name</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="20">
+        <li class="covered" data-hits="2" data-linenumber="14">
           <span class="hits">2</span>
           
           <code class="ruby">      row :address</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="21">
+        <li class="covered" data-hits="2" data-linenumber="15">
           <span class="hits">2</span>
           
           <code class="ruby">      row :longitude</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="22">
+        <li class="covered" data-hits="2" data-linenumber="16">
           <span class="hits">2</span>
           
           <code class="ruby">      row :latitude</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="23">
+        <li class="covered" data-hits="2" data-linenumber="17">
           <span class="hits">2</span>
           
           <code class="ruby">      row :house</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="24">
+        <li class="covered" data-hits="2" data-linenumber="18">
           <span class="hits">2</span>
           
           <code class="ruby">      row :head</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="25">
+        <li class="covered" data-hits="2" data-linenumber="19">
           <span class="hits">2</span>
           
           <code class="ruby">      row :partner</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="26">
+        <li class="covered" data-hits="2" data-linenumber="20">
           <span class="hits">2</span>
           
           <code class="ruby">      row :gmaps</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="27">
+        <li class="covered" data-hits="2" data-linenumber="21">
           <span class="hits">2</span>
           
           <code class="ruby">      row :created_at</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="28">
+        <li class="covered" data-hits="2" data-linenumber="22">
           <span class="hits">2</span>
           
           <code class="ruby">      row :updated_at</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="29">
+        <li class="covered" data-hits="2" data-linenumber="23">
           <span class="hits">2</span>
           
           <code class="ruby">      row :location do |location|</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="30">
+        <li class="never" data-hits="" data-linenumber="24">
           
           
           <code class="ruby">        render :partial =&gt; &quot;show_location&quot;,</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="31">
+        <li class="covered" data-hits="2" data-linenumber="25">
           <span class="hits">2</span>
           
           <code class="ruby">               :locals =&gt; { :location =&gt; location }</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="32">
+        <li class="never" data-hits="" data-linenumber="26">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="33">
+        <li class="never" data-hits="" data-linenumber="27">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="34">
+        <li class="covered" data-hits="2" data-linenumber="28">
           <span class="hits">2</span>
           
           <code class="ruby">    active_admin_comments</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="35">
+        <li class="never" data-hits="" data-linenumber="29">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="36">
+        <li class="never" data-hits="" data-linenumber="30">
           
           
           <code class="ruby">end</code>
@@ -3819,7 +3783,7 @@
         <li class="covered" data-hits="2" data-linenumber="59">
           <span class="hits">2</span>
           
-          <code class="ruby">      Location.update_location(params[:partner], partner)</code>
+          <code class="ruby">      Location.delay.update_location(params[:partner], partner)</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="60">
@@ -6474,8 +6438,8 @@
           <code class="ruby">  def gmaps4rails_address</code>
         </li>
       
-        <li class="covered" data-hits="21" data-linenumber="15">
-          <span class="hits">21</span>
+        <li class="covered" data-hits="16" data-linenumber="15">
+          <span class="hits">16</span>
           
           <code class="ruby">    address</code>
         </li>
@@ -6606,8 +6570,8 @@
           <code class="ruby">  def self.update_location(params_obj, obj)</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="37">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="2" data-linenumber="37">
+          <span class="hits">2</span>
           
           <code class="ruby">    temp_location = self.create!(:address =&gt; params_obj[:location_attributes][:address],</code>
         </li>
@@ -6624,14 +6588,14 @@
           <code class="ruby">                                 :gmaps =&gt; false)</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="40">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="2" data-linenumber="40">
+          <span class="hits">2</span>
           
           <code class="ruby">    if obj.location</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="41">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="1" data-linenumber="41">
+          <span class="hits">1</span>
           
           <code class="ruby">      obj.location.update_attributes(:address =&gt; temp_location.address,</code>
         </li>
@@ -6654,8 +6618,8 @@
           <code class="ruby">                                     :name =&gt; temp_location.name)</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="45">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="1" data-linenumber="45">
+          <span class="hits">1</span>
           
           <code class="ruby">      temp_location.destroy</code>
         </li>
@@ -6666,8 +6630,8 @@
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="47">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="1" data-linenumber="47">
+          <span class="hits">1</span>
           
           <code class="ruby">      obj.location = temp_location</code>
         </li>

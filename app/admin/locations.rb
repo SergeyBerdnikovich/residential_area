@@ -1,14 +1,8 @@
+require 'update_location_job'
 ActiveAdmin.register Location do
   controller do
     def update
-      location = Location.find(params[:id])
-      temp_location = Location.create!(:address => params[:location][:address],
-                                       :name => params[:location][:name],
-                                       :gmaps => false)
-      params[:location][:latitude] = temp_location.latitude
-      params[:location][:longitude] = temp_location.longitude
-
-      temp_location.destroy
+      Delayed::Job.enqueue(UpdateLocationJob.new(params[:id], params[:location]))
       update!
     end
   end

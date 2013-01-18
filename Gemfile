@@ -45,6 +45,7 @@ gem 'tinymce-rails'
 gem 'tinymce-rails-langs'
 gem 'tinymce-rails-imageupload'
 gem 'sanitize'
+gem 'delayed_job_active_record'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

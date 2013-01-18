@@ -56,7 +56,7 @@ ActiveAdmin.register Head do
   controller do
     def update
       head = Head.find(params[:id])
-      Location.update_location(params[:head], head)
+      Location.delay.update_location(params[:head], head)
       update!
     end
   end

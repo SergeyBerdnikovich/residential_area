@@ -56,7 +56,7 @@ ActiveAdmin.register Partner do
   controller do
     def update
       partner = Partner.find(params[:id])
-      Location.update_location(params[:partner], partner)
+      Location.delay.update_location(params[:partner], partner)
       update!
     end
   end
