@@ -22,4 +22,19 @@ ActiveAdmin.register User do
     end
     f.actions
   end
+
+  controller do
+    def create
+      authorize! :create, User
+      create!
+    end
+    def destroy
+      authorize! :destroy, User
+      destroy!
+    end
+    def update
+      authorize! :update, User
+      update!
+    end
+  end
 end

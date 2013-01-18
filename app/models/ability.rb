@@ -8,7 +8,9 @@ class Ability
        if user.role? :admin
          can :manage, :all
        elsif  user.role? :moderator
-         can [:update, :create], [:all, :all]
+         can :update, :all
+         cannot :update, :User
+         cannot [:create, :destroy], [:all, :all]
        else
          can :read, :all
        end

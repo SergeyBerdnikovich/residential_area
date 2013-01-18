@@ -5,7 +5,7 @@ include Warden::Test::Helpers
 describe Admin::UsersController do
   render_views
 
-  let(:user) { create(:user, :name => 'Igor') }
+  let(:user) { create(:user) }
   let(:role) { create(:role) }
   before do
     login_as create(:user)
@@ -46,6 +46,15 @@ describe Admin::UsersController do
       visit admin_users_path
 
       page.should have_content("Users")
+    end
+  end
+
+  describe "DELETE 'destroy'" do
+    it "should destroy a user" do
+
+     visit admin_user_path(user)
+
+     expect { click_link('Delete User') }.to change(User, :count).by(-1)
     end
   end
 end

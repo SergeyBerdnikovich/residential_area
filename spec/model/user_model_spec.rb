@@ -3,7 +3,7 @@ require 'spec_helper'
 describe User do
   before do
     @first_user = create(:user)
-    @second_user = create(:user, :name => 'Sergey')
+    @second_user = create(:user)
   end
 
   describe 'validates' do

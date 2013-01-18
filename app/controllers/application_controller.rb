@@ -18,7 +18,9 @@ class ApplicationController < ActionController::Base
 
   def authenticate_admin_user!
     if current_user
-      raise SecurityError unless current_user.role.name == 'admin'
+      unless current_user.role.name == 'admin' || current_user.role.name == 'moderator'
+        raise SecurityError
+      end
     else
       redirect_to root_path, :alert => 'please log in'
     end
