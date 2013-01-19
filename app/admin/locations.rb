@@ -2,7 +2,8 @@ require 'update_location_job'
 ActiveAdmin.register Location do
   controller do
     def update
-      Delayed::Job.enqueue(UpdateLocationJob.new(params[:id], params[:location]))
+      location = Location.find(params[:id])
+      Delayed::Job.enqueue(UpdateLocationJob.new(location, params[:location]))
       update!
     end
   end

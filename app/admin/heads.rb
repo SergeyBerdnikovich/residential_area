@@ -56,7 +56,8 @@ ActiveAdmin.register Head do
   controller do
     def update
       head = Head.find(params[:id])
-      Location.delay.update_location(params[:head], head)
+      head_params = params[:head][:location_attributes]
+      Delayed::Job.enqueue(UpdateLocationJob.new(head.location, head_params))
       update!
     end
   end

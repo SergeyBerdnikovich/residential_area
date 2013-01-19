@@ -76,7 +76,8 @@ ActiveAdmin.register House do
   controller do
     def update
       house = House.find(params[:id])
-      Location.update_location(params[:house], house)
+      house_params = params[:house][:location_attributes]
+      Delayed::Job.enqueue(UpdateLocationJob.new(house.location, house_params))
       update!
     end
   end

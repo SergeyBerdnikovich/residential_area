@@ -1,14 +1,15 @@
-class UpdateLocationJob < Struct.new(:locaton_id, :params_location)
+class UpdateLocationJob < Struct.new(:obj, :obj_params)
   def perform
-    temp_location = Location.create!(:address => params_location[:address],
-                                     :name => params_location[:name],
+    temp_location = Location.create!(:address => obj_params[:address],
+                                     :name => obj_params[:name],
                                      :gmaps => false)
-    params_location[:latitude] = temp_location.latitude
-    params_location[:longitude] = temp_location.longitude
+    if obj
+      obj_params[:latitude] = temp_location.latitude
+      obj_params[:longitude] = temp_location.longitude
 
-    temp_location.destroy
+      temp_location.destroy
 
-    @location = Location.find(locaton_id)
-    @location.update_attributes(params_location)
+      obj.update_attributes(obj_params)
+    end
   end
 end

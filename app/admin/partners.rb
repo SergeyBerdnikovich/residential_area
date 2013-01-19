@@ -56,7 +56,8 @@ ActiveAdmin.register Partner do
   controller do
     def update
       partner = Partner.find(params[:id])
-      Location.delay.update_location(params[:partner], partner)
+      partner_params = params[:partner][:location_attributes]
+      Delayed::Job.enqueue(UpdateLocationJob.new(partner.location, partner_params))
       update!
     end
   end
