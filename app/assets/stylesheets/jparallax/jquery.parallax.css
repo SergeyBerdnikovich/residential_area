@@ -1,0 +1,37 @@
+.parallax-viewport {
+    position: relative;     /* relative, absolute, fixed */
+    overflow: hidden;
+}
+
+#port {
+    margin: 1.5em 0px;
+    overflow: hidden;
+    position: relative;
+    height: 230px;
+}
+
+.parallax-layer {
+    position: absolute;
+}
+
+.thumbs_index {
+    padding: 0 12px;
+    left: 0;
+    white-space: nowrap;
+}
+
+.thumbs_index > li {
+    display: inline;
+    margin-right: 12px;
+}
+
+.img_thumb {
+  padding-top: 120px;
+  width: 192px;
+
+  -webkit-box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+     -moz-box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+.footnote { font-size: 0.6em; color: #858b95; }

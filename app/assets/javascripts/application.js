@@ -15,3 +15,10 @@
 //= require twitter/bootstrap
 //= require tinymce/tiny_mce
 //= require_tree .
+
+jQuery(document).ready(function(){
+  jQuery('.parallax-layer').parallax({
+    mouseport: jQuery("#port"),
+    yparallax: false
+  });
+});

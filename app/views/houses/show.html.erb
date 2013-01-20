@@ -12,16 +12,20 @@
   <%= render 'show_apartments' %>
 <% end %>
 <br>
-<div id="gallery">
-    <ul>
+<div class="site_wrap wrap">
+  <div id="port">
+    <div id="gallery">
+    <ul class="thumbs_index index parallax-layer">
       <% @gallery.each do |photo| %>
         <li>
-            <a href=<%= "#{photo.image.url}" %> title=<%= "#{photo.image_file_name}" %>>
-                <%= image_tag photo.image.url(:small) %>
-            </a>
+          <a href=<%= "#{photo.image.url}" %>>
+            <%= image_tag photo.image.url(:for_gallery) %>
+          </a>
         </li>
       <% end %>
     </ul>
+    </div>
+  </div>
 </div>
 <br>
 <%= gmaps("markers" => { "data" => @json },
@@ -29,4 +33,3 @@
                              "auto_adjust" => true,
                              "auto_zoom" => false,
                              "language" => 'ru' },) %>
-<%= link_to 'Back', houses_path %>
