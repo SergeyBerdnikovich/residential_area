@@ -1,0 +1,3 @@
+<% @not_residential_apartments.each do |apartment| %>
+  <%= link_to "#{apartment.title}", house_apartment_path(apartment.house, apartment)%>
+<% end %>

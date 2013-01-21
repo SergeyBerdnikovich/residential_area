@@ -21,4 +21,8 @@ jQuery(document).ready(function(){
     mouseport: jQuery("#port"),
     yparallax: false
   });
+  jQuery('#parallax .parallax-layer')
+  .parallax({
+    mouseport: jQuery('#parallax')
+  });
 });

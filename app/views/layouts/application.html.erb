@@ -8,25 +8,36 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="container">
+    <div class="span12">
+      <%= render "layouts/top_parallax" %>
+    </div>
+  </div>
   <div class="container-fluid">
     <div class="row-fluid">
       <div class="span2">
         <ul class="nav nav-list">
           <li class="nav-header">Меню</li>
+          <li>
+              <% if user_signed_in? %>
+                User: <%= current_user.email %><br>
+                Role: <%= current_user.role.name %><br>
+                <%= link_to "Выити", destroy_user_session_path, :method => "DELETE" %>
+              <% else %>
+                <%= link_to "Воити", new_user_session_path %>
+                <%= link_to "Регистрация", new_user_registration_path %>
+               <% end %>
+          </li>
           <li class="dropdown-submenu">
             <a tabindex="-1" href="#"><i class="icon-home"></i>Жилищное строительство</a>
             <ul class="dropdown-menu">
               <li class="active"><a href="#"><i class="icon-home"></i>Готовые</a></li>
               <li>
-                <% @completed_houses.each do |house| %>
-                  <%= link_to "#{house.title}", house_path(house)%>
-                <% end %>
+                <%= render "layouts/completed_houses" %>
               </li>
               <li class="active"><a href="#"><i class="icon-wrench"></i>Строятся</a></li>
               <li>
-                <% @uncompleted_houses.each do |house| %>
-                  <%= link_to "#{house.title}", house_path(house)%>
-                <% end %>
+                <%= render "layouts/uncompleted_houses" %>
               </li>
             </ul>
           </li>
@@ -34,9 +45,7 @@
             <a tabindex="-1" href="#"><i class="icon-home"></i>Комерческие объекты</a>
             <ul class="dropdown-menu">
               <li>
-                <% @not_residential_apartments.each do |apartment| %>
-                  <%= link_to "#{apartment.title}", house_apartment_path(apartment.house, apartment)%>
-                <% end %>
+                <%= render "layouts/not_residential_apartments" %>
               </li>
             </ul>
           </li>
@@ -47,19 +56,17 @@
         </ul>
       </div>
       <div class="span10">
-        <div id="user_nav">
-          <% if user_signed_in? %>
-            User: <%= current_user.email %>
-            Role: <%= current_user.role.name %>
-            <%= link_to "sign out", destroy_user_session_path, :method => "DELETE" %>
-          <% else %>
-            <%= link_to "sign in", new_user_session_path %> or <%= link_to "sign up", new_user_registration_path %>
-          <% end %>
-        </div>
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
         <%= yield %>
       </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="span12">
+      <br>
+      <p align="center">Residential Area © 2013<br>Бердникович Сергей</p>
+      <br>
     </div>
   </div>
 </body>

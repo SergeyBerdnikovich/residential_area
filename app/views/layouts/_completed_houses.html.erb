@@ -1,0 +1,3 @@
+<% @completed_houses.each do |house| %>
+  <%= link_to "#{house.title}", house_path(house)%>
+<% end %>
