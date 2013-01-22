@@ -1,0 +1,18 @@
+<table class="table">
+  <tr>
+    <th>Title</th>
+    <th>Created at</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @news.each do |news| %>
+    <tr>
+      <td><%= link_to news.title, news %></td>
+      <td><%= news.created_at %></td>
+      <td><%= link_to 'Читать', news %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= paginate @news, :window => 3 %>
