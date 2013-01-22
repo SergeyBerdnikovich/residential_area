@@ -9,64 +9,40 @@
 </head>
 <body>
   <div class="container">
-    <div class="span12">
-      <%= render "layouts/top_parallax" %>
-    </div>
-  </div>
-  <div class="container-fluid">
-    <div class="row-fluid">
-      <div class="span2">
-        <ul class="nav nav-list">
-          <li class="nav-header">Меню</li>
-          <li>
-              <% if user_signed_in? %>
-                User: <%= current_user.email %><br>
-                Role: <%= current_user.role.name %><br>
-                <%= link_to "Выити", destroy_user_session_path, :method => "DELETE" %>
-              <% else %>
-                <%= link_to "Воити", new_user_session_path %>
-                <%= link_to "Регистрация", new_user_registration_path %>
-               <% end %>
-          </li>
-          <li class="dropdown-submenu">
-            <a tabindex="-1" href="#"><i class="icon-home"></i>Жилищное строительство</a>
-            <ul class="dropdown-menu">
-              <li class="active"><a href="#"><i class="icon-home"></i>Готовые</a></li>
-              <li>
-                <%= render "layouts/completed_houses" %>
-              </li>
-              <li class="active"><a href="#"><i class="icon-wrench"></i>Строятся</a></li>
-              <li>
-                <%= render "layouts/uncompleted_houses" %>
-              </li>
-            </ul>
-          </li>
-          <li class="dropdown-submenu">
-            <a tabindex="-1" href="#"><i class="icon-home"></i>Комерческие объекты</a>
-            <ul class="dropdown-menu">
-              <li>
-                <%= render "layouts/not_residential_apartments" %>
-              </li>
-            </ul>
-          </li>
-          <li><a href="/pages/developer"><i class="icon-user"></i>Застройщик</a></li>
-          <li><a href="/news"><i class="icon-info-sign"></i>Новости</a></li>
-          <li><a href="/pages/files"><i class="icon-file"></i>Юридический отдел</a></li>
-          <li><a href="/pages/contacts"><i class="icon-envelope"></i>Контактная информация</a></li>
-        </ul>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span10">
+          <div class="upper_zone">
+            <%= render "layouts/zone/upper_zone" %>
+          </div>
+          <div class="container">
+            <div class="container-fluid">
+              <div class="row-fluid">
+                <div class="span2">
+                  <div class="left_zone">
+                    <%= render "layouts/zone/left_zone" %>
+                  </div>
+                </div>
+                <div class="span8">
+                  <p class="notice"><%= notice %></p>
+                  <p class="alert"><%= alert %></p>
+                  <div class="content_zone">
+                    <%= yield %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lower_zone">
+            <%= render "layouts/zone/lower_zone" %>
+          </div>
+        </div>
+        <div class="span2">
+          <div class="right zone">
+            <%= render "layouts/zone/right_zone" %>
+          </div>
+        </div>
       </div>
-      <div class="span10">
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-        <%= yield %>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="span12">
-      <br>
-      <p align="center">Residential Area © 2013<br>Бердникович Сергей</p>
-      <br>
     </div>
   </div>
 </body>

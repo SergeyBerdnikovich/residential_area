@@ -1,9 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @house.title %>
-</p>
+<span class="label label-success">Название</span><br>
+<%= @house.title %><br>
+
 
 <%= link_to 'Description', "#" %>
 <%= render 'show_description' %>
@@ -12,8 +11,8 @@
   <%= render 'show_apartments' %>
 <% end %>
 <br>
-<div class="site_wrap pull-left">
-  <span class="label label-success">Gallery</span>
+<div class="site_wrap">
+  <span class="label label-success">Галлерея</span>
   <div id="port">
     <div id="gallery">
     <ul class="thumbs_index index parallax-layer">
@@ -29,11 +28,9 @@
   </div>
 </div>
 <br>
-<div class="pull-left">
-  <span class="label label-success">Gmap</span>
-  <%= gmaps("markers" => { "data" => @json },
-            "map_options" => { "zoom" => 15,
-                               "auto_adjust" => true,
-                               "auto_zoom" => false,
-                               "language" => 'ru' },) %>
-</div>
+<span class="label label-success">Карта</span>
+<%= gmaps("markers" => { "data" => @json },
+          "map_options" => { "zoom" => 15,
+                             "auto_adjust" => true,
+                             "auto_zoom" => false,
+                             "language" => 'ru' },) %>

@@ -37,8 +37,8 @@
 .footnote { font-size: 0.6em; color: #858b95; }
 
 .parallax-viewport {
-  width: 100%;
-  max-width: 70em;
+  width: 102%;
+  max-width: 80em;
   height: 20em;
   background-color: white
 }
