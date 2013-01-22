@@ -2,32 +2,28 @@
 
 <span class="label label-success">Название</span><br>
 <%= @house.title %><br>
+<div class="btn-group" data-toggle="buttons-checkbox">
+  <button type="button" class="btn btn-success", id="show_description" >Описание</button>
+  <button type="button" class="btn btn-success", id="show_residential_apartments" >Квартиры</button>
+  <button type="button" class="btn btn-success", id="show_not_residential_apartments" >Комерческие объекты</button>
+</div>
 
-
-<%= link_to 'Description', "#" %>
-<%= render 'show_description' %>
-<% unless @house.apartments.blank? %>
-  <%= link_to 'Apartments', house_apartments_path(@house) %><br>
-  <%= render 'show_apartments' %>
-<% end %>
-<br>
-<div class="site_wrap">
-  <span class="label label-success">Галлерея</span>
-  <div id="port">
-    <div id="gallery">
-    <ul class="thumbs_index index parallax-layer">
-      <% @gallery.each do |photo| %>
-        <li>
-          <a href=<%= "#{photo.image.url}" %>>
-            <%= image_tag photo.image.url(:for_gallery) %>
-          </a>
-        </li>
-      <% end %>
-    </ul>
-    </div>
-  </div>
+<div id="description" class="hide">
+  <%= render 'show_description' %>
 </div>
 <br>
+
+<div id="residential_apartments" class="hide">
+  <%= render :partial => 'show_apartments',
+             :locals => { :apartments => @residential_apartments } %>
+</div>
+<br>
+
+<div id="not_residential_apartments" class="hide">
+  <%= render :partial => 'show_apartments',
+             :locals => { :apartments => @not_residential_apartments } %>
+</div>
+<%= render 'show_gallery' %>
 <span class="label label-success">Карта</span>
 <%= gmaps("markers" => { "data" => @json },
           "map_options" => { "zoom" => 15,

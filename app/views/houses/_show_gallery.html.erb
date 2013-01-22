@@ -1,0 +1,16 @@
+<div class="site_wrap">
+  <span class="label label-success">Галлерея</span>
+  <div id="port">
+    <div id="gallery">
+    <ul class="thumbs_index index parallax-layer">
+      <% @gallery.each do |photo| %>
+        <li>
+          <a href=<%= "#{photo.image.url}" %>>
+            <%= image_tag photo.image.url(:for_gallery) %>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+    </div>
+  </div>
+</div>

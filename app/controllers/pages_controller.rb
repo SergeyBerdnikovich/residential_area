@@ -11,5 +11,6 @@ class PagesController < ApplicationController
   end
 
   def welcome
+    @gallery = Gallery.limit(5)
   end
 end
