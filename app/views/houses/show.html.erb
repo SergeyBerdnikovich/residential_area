@@ -1,11 +1,9 @@
-<p id="notice"><%= notice %></p>
-
 <span class="label label-success">Название</span><br>
 <%= @house.title %><br>
 <div class="btn-group" data-toggle="buttons-checkbox">
-  <button type="button" class="btn btn-success", id="show_description" >Описание</button>
-  <button type="button" class="btn btn-success", id="show_residential_apartments" >Квартиры</button>
-  <button type="button" class="btn btn-success", id="show_not_residential_apartments" >Комерческие объекты</button>
+  <button type="button" class="btn btn-info", id="show_description" >Описание</button>
+  <button type="button" class="btn btn-info", id="show_residential_apartments" >Квартиры</button>
+  <button type="button" class="btn btn-info", id="show_not_residential_apartments" >Комерческие объекты</button>
 </div>
 
 <div id="description" class="hide">
@@ -14,12 +12,14 @@
 <br>
 
 <div id="residential_apartments" class="hide">
+  <span class="label label-success">Квартиры</span><br>
   <%= render :partial => 'show_apartments',
              :locals => { :apartments => @residential_apartments } %>
 </div>
 <br>
 
 <div id="not_residential_apartments" class="hide">
+  <span class="label label-success">Комерческие объекты</span><br>
   <%= render :partial => 'show_apartments',
              :locals => { :apartments => @not_residential_apartments } %>
 </div>

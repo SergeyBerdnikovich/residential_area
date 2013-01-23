@@ -14,9 +14,10 @@ class Gallery < ActiveRecord::Base
   validates_attachment_content_type :image,
                                     :content_type => ['image/jpg', 'image/jpeg', 'image/gif', 'image/png']
 
-  attr_accessible :house_id, :apartment_id, :image
+  attr_accessible :house_id, :apartment_id, :image, :for_carousel
 
   scope :for_house, ->(house_id) { where('house_id = ?', house_id) }
   scope :for_apartment, ->(apartment_id) { where('apartment_id = ?', apartment_id) }
-  scope :for_news, where(:house_id => nil).where(:apartment_id => nil)
+  scope :for_news, where(:house_id => nil).where(:apartment_id => nil).where(:for_carousel => false)
+  scope :for_carousel, where(:for_carousel => true)
 end

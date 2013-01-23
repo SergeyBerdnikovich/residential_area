@@ -2,6 +2,7 @@
 ActiveAdmin.register Gallery do
   scope :all, :default => true
   scope :for_news
+  scope :for_carousel
 
   index do
     column :id
@@ -25,6 +26,7 @@ ActiveAdmin.register Gallery do
     end
     f.inputs "Фото", :multipart => true do
       f.input :image, :as => :file, :hint => f.template.image_tag(f.object.image.url)
+      f.input :for_carousel, :label => "Для карусели"
     end
     f.actions
   end
@@ -43,6 +45,7 @@ ActiveAdmin.register Gallery do
       row :image_file_size
       row :created_at
       row :updated_at
+      row :for_carousel
       row :image do
         image_tag gallery.image.url(:normal)
       end

@@ -6,7 +6,7 @@ audio:not([controls]){display:none;height:0}
 [draggable="false"]{-webkit-user-drag:none;cursor:auto}
 html{font-size:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
 html,button,input,select,textarea{font-family:sans-serif}
-html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,code,time,del,dfn,em,img,q,dl,dt,dd,ol,ul,li,form,fieldset,label,legend,input,output,button,select,textarea,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,dialog,figure,footer,header,hgroup,nav,section{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box;-webkit-background-origin:padding-box;-moz-background-origin:padding;background-origin:padding-box}
+html,body,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,code,time,del,dfn,em,img,q,dl,dt,dd,ol,ul,li,form,fieldset,label,legend,input,output,button,select,textarea,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,dialog,figure,footer,header,hgroup,nav,section{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box;-webkit-background-origin:padding-box;-moz-background-origin:padding;background-origin:padding-box}
 body{padding:0;margin:0}
 dl,menu,ol,ul,dd{margin:0}
 menu,ol,ul{padding:0 0 0 40px}

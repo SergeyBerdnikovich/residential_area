@@ -1,12 +1,12 @@
-<div id="myCarousel" class="carousel slide">
-  <!-- Carousel items -->
-  <div class="carousel-inner">
-    <div class="active item"><img src="http://cs307810.userapi.com/v307810928/4cb5/4Z6YI8okf34.jpg"></div>
-    <% @gallery.each do |gallery| %>
-      <div class="item"><%= image_tag gallery.image.url(:normal) %></div>
-    <% end %>
+<link rel="stylesheet" href="/assets/nivo-slider/themes/default/default.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/assets/nivo-slider/nivo-slider.css" type="text/css" media="screen" />
+
+<div id="wrapper">
+  <div class="slider-wrapper theme-default">
+    <div id="slider" class="nivoSlider">
+      <% @gallery.each do |photo| %>
+        <img src=<%= photo.image.url %> data-thumb=<%= photo.image.url %> alt="" />
+      <% end %>
+    </div>
   </div>
-  <!-- Carousel nav -->
-  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 </div>

@@ -11,6 +11,6 @@ class PagesController < ApplicationController
   end
 
   def welcome
-    @gallery = Gallery.limit(5)
+    @gallery = Gallery.for_carousel
   end
 end
