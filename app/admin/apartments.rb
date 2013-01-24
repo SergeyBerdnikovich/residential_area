@@ -1,8 +1,8 @@
 # coding: utf-8
 ActiveAdmin.register Apartment do
   scope :all, :default => true
-  scope :get_residential_apartments
-  scope :get_not_residential_apartments
+  scope :get_residential
+  scope :get_not_residential
 
   form :html => { :multipart => true } do |f|
     f.inputs "Дом" do

@@ -1,8 +1,8 @@
 # coding: utf-8
 ActiveAdmin.register House do
   scope :all, :default => true
-  scope :get_completed_houses
-  scope :get_uncompleted_houses
+  scope :get_completed
+  scope :get_uncompleted
 
   index do
     column :id

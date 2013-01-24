@@ -2,7 +2,7 @@
 
 <p>
   <b>House:</b>
-  <%= @apartment.house.title %>
+  <%= link_to @apartment.house.title, @apartment.house %>
 </p>
 
 <p>
@@ -17,12 +17,12 @@
 
 <p>
   <b>Cost:</b>
-  <%= @apartment.cost %>
+  <%= @apartment.cost %> $
 </p>
 
 <p>
   <b>Space:</b>
-  <%= @apartment.space %>
+  <%= @apartment.space %> m2
 </p>
 
 <p>
@@ -39,8 +39,8 @@
     <ul>
       <% @gallery.each do |photo| %>
         <li>
-            <a href=<%= "#{photo.image.url}" %> title=<%= "#{photo.image_file_name}" %>>
-                <%= image_tag photo.image.url(:small) %>
+            <a href=<%= "#{photo.image.url(:normal)}" %> title=<%= "#{photo.image_file_name}" %>>
+                <%= image_tag photo.image.url(:for_gallery) %>
             </a>
         </li>
       <% end %>

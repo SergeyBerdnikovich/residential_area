@@ -24,6 +24,7 @@ class Apartment < ActiveRecord::Base
   validates :residential, :inclusion => { :in => [true, false] }
   validates_associated :galleries
 
-  scope :get_not_residential_apartments, where(:residential => false)
-  scope :get_residential_apartments, where(:residential => true)
+  scope :get_not_residential, where(:residential => false)
+  scope :get_residential, where(:residential => true)
+  scope :for, ->(house) { where('house_id = ?', house) }
 end

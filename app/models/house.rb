@@ -21,6 +21,6 @@ class House < ActiveRecord::Base
   validates_associated :galleries
   validates_associated :location
 
-  scope :get_completed_houses, where(:completed => true)
-  scope :get_uncompleted_houses, where(:completed => false)
+  scope :get_completed, where(:completed => true)
+  scope :get_uncompleted, where(:completed => false)
 end

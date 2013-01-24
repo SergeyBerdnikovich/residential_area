@@ -1,9 +1,12 @@
 <span class="label label-success">Название</span><br>
 <%= @house.title %><br>
-<div class="btn-group" data-toggle="buttons-checkbox">
-  <button type="button" class="btn btn-info", id="show_description" >Описание</button>
-  <button type="button" class="btn btn-info", id="show_residential_apartments" >Квартиры</button>
-  <button type="button" class="btn btn-info", id="show_not_residential_apartments" >Комерческие объекты</button>
+<div class="btn-toolbar">
+  <div class="btn-group" data-toggle="buttons-checkbox">
+    <button type="button" class="btn btn-info", id="show_description" >Описание</button>
+    <button type="button" class="btn btn-info", id="show_residential_apartments" >Квартиры</button>
+    <button type="button" class="btn btn-info", id="show_not_residential_apartments" >Комерческие объекты</button>
+  </div>
+  <a href=<%= house_apartments_path(@house) %> class="btn btn-small btn-info">Все объекты</a>
 </div>
 
 <div id="description" class="hide">

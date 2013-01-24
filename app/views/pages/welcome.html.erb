@@ -1,12 +1,4 @@
-<link rel="stylesheet" href="/assets/nivo-slider/themes/default/default.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="/assets/nivo-slider/nivo-slider.css" type="text/css" media="screen" />
+<%= render 'show_slider' %>
 
-<div id="wrapper">
-  <div class="slider-wrapper theme-default">
-    <div id="slider" class="nivoSlider">
-      <% @gallery.each do |photo| %>
-        <img src=<%= photo.image.url %> data-thumb=<%= photo.image.url %> alt="" />
-      <% end %>
-    </div>
-  </div>
-</div>
+<%= render 'show_news' %>
+

@@ -12,5 +12,6 @@ class PagesController < ApplicationController
 
   def welcome
     @gallery = Gallery.for_carousel
+    @last_news = News.last(5).reverse
   end
 end

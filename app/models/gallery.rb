@@ -16,8 +16,8 @@ class Gallery < ActiveRecord::Base
 
   attr_accessible :house_id, :apartment_id, :image, :for_carousel
 
-  scope :for_house, ->(house_id) { where('house_id = ?', house_id) }
-  scope :for_apartment, ->(apartment_id) { where('apartment_id = ?', apartment_id) }
+  scope :for_house, ->(house) { where('house_id = ?', house) }
+  scope :for_apartment, ->(apartment) { where('apartment_id = ?', apartment) }
   scope :for_news, where(:house_id => nil).where(:apartment_id => nil).where(:for_carousel => false)
   scope :for_carousel, where(:for_carousel => true)
 end

@@ -1,0 +1,21 @@
+<span class="label label-success">Последние новости</span><br>
+<div class="tabbable">
+  <ul class="nav nav-tabs">
+    <% @last_news.each_with_index do |news, indx| %>
+      <li class=<%= "active" if indx == 0 %>>
+        <a href=<%= "#tab#{news.id}" %> data-toggle="tab"><%= news.created_at.to_s(:for_news) %></a>
+      </li>
+    <% end %>
+  </ul>
+  <div class="tab-content">
+    <% @last_news.each_with_index do |news, indx| %>
+      <div class="tab-pane <%= "#{"active" if indx == 0}" %>" id=<%= "tab#{news.id}" %>>
+        <p>
+          <strong><%= news.title %></strong>
+          <%== News.sanitize_news(news.content[0..300]) %>
+          <%= link_to "Читать", news %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</div>

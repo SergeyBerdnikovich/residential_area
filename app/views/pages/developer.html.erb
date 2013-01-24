@@ -1,3 +1,23 @@
-<h1>Pages#developer</h1><br>
-<%= render 'show_heads' %><br>
-<%= render 'show_partners' %><br>
+<div class="btn-group" data-toggle="buttons-radio">
+  <button class="btn btn-info active", id="show_company">О компании</button>
+  <button class="btn btn-info", id="show_heads">Руководители</button>
+  <button class="btn btn-info", id="show_partners">Партнёры</button>
+</div>
+
+<div id="info">
+  <%= render 'show_company' %>
+</div>
+
+<script>
+  $(function(){
+    $('#show_company').click(function(){
+      $('#info').html("<%=escape_javascript(render("show_company"))%>");
+    });
+    $('#show_heads').click(function(){
+      $('#info').html("<%=escape_javascript(render("show_heads"))%>");
+    });
+    $('#show_partners').click(function(){
+      $('#info').html("<%=escape_javascript(render("show_partners"))%>");
+    });
+  })
+</script>

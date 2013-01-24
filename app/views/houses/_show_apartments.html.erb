@@ -1,9 +1,16 @@
-<% apartments.each do |apartment| %>
-  <a href= <%= house_apartment_path(@house, apartment) %> title= <%= apartment.title %>>
-    <% if apartment.galleries.first %>
-      <%= image_tag apartment.galleries.first.image.url(:for_gallery) %>
-    <% else %>
-      <%= image_tag "/assets/rails.png" %>
-    <% end %>
-  </a>
-<% end %>
+<ul class="thumbnails">
+  <% apartments.each do |apartment| %>
+    <li class="span3">
+      <div class="thumbnail">
+      <a href= <%= house_apartment_path(@house, apartment) %> title= <%= apartment.title %> class="thumbnail">
+        <% if apartment.galleries.first %>
+          <%= image_tag apartment.galleries.first.image.url(:for_gallery) %>
+        <% else %>
+          <%= image_tag "/assets/rails.png" %>
+        <% end %>
+      </a>
+      <p><%= apartment.title %></p>
+    </div>
+    </li>
+  <% end %>
+</ul>

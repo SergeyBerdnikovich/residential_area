@@ -3,9 +3,9 @@ class ApplicationController < ActionController::Base
   before_filter :init_menu
 
   def init_menu
-    @completed_houses = House.get_completed_houses
-    @uncompleted_houses = House.get_uncompleted_houses
-    @not_residential_apartments = Apartment.get_not_residential_apartments
+    @completed_houses = House.get_completed
+    @uncompleted_houses = House.get_uncompleted
+    @not_residential_apartments = Apartment.get_not_residential
    end
 
   rescue_from CanCan::AccessDenied do |exception|

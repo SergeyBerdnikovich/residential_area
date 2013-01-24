@@ -1,29 +1,3 @@
-<h1>Apartments for <%= link_to @house.title, house_path(@house) %></h1>
-
-<table>
-  <tr>
-    <th></th>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Cost</th>
-    <th>Space</th>
-    <th>Number of rooms</th>
-    <th>Residential</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @apartments.each do |apartment| %>
-  <tr>
-    <td><%= image_tag apartment.galleries[0].image.url(:small) if apartment.galleries[0] %></td>
-    <td><%= apartment.title %></td>
-    <td><%= apartment.description %></td>
-    <td><%= apartment.cost %></td>
-    <td><%= apartment.space %></td>
-    <td><%= apartment.number_of_rooms %></td>
-    <td><%= apartment.residential %></td>
-    <td><%= link_to 'Show', house_apartment_path(@house, apartment) %></td>
-  </tr>
-<% end %>
-</table>
+<div id="apartments">
+  <%= render 'apartments' %>
+</div>
