@@ -4,7 +4,7 @@ class News < ActiveRecord::Base
 
   validates :title, :presence => true,
                     :uniqueness => true,
-                    :length => { :minimum => 5, :maximum => 50 }
+                    :length => { :minimum => 5 }
   validates :content, :presence => true,
                       :uniqueness => true
   validates :user_id, :presence => true,
