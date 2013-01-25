@@ -61,9 +61,7 @@ module ResidentialArea
 
     # Enable the asset pipeline
     config.assets.enabled = true
-
-    config.assets.precompile += %w( twitter-bootstrap/bootstrap-button.js nivo-slider/themes/default/default.css nivo-slider/style.css nivo-slider/nivo-slider.css gmaps4rails.css active_admin.css active_admin.js active_admin/print.css )
-
+    config.assets.precompile += %w( jparallax/base.css jparallax/docs.classes.css jparallax/jquery.parallax.css gmaps4rails.css nivo-slider/style.css nivo-slider/themes/default/default.css nivo-slider/nivo-slider.css twitter-bootstrap/bootstrap.scss active_admin.css active_admin.js active_admin/print.css )
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     config.assets.initialize_on_precompile = false

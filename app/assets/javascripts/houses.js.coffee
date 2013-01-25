@@ -9,3 +9,4 @@ $(document).ready ->
     $("div#residential_apartments").toggle()
   $("button#show_not_residential_apartments").click ->
     $("div#not_residential_apartments").toggle()
+  $("[rel='popover']").popover({trigger: 'hover'});

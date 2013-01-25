@@ -2,11 +2,13 @@
 <%= @house.title %><br>
 <div class="btn-toolbar">
   <div class="btn-group" data-toggle="buttons-checkbox">
-    <button type="button" class="btn btn-info", id="show_description" >Описание</button>
-    <button type="button" class="btn btn-info", id="show_residential_apartments" >Квартиры</button>
-    <button type="button" class="btn btn-info", id="show_not_residential_apartments" >Комерческие объекты</button>
+    <button type="button" class="btn btn-info", id="show_description">Описание</button>
+    <button type="button" class="btn btn-info", id="show_residential_apartments">Квартиры</button>
+    <button type="button" class="btn btn-info", id="show_not_residential_apartments">Коммерческие объекты</button>
   </div>
-  <a href=<%= house_apartments_path(@house) %> class="btn btn-small btn-info">Все объекты</a>
+  <div class="btn-group">
+    <a href=<%= house_apartments_path(@house) %> class="btn btn-info" rel="popover" data-content="Чтобы посмотреть все объекты этого дома нажми меня...!" data-original-title="Подсказка">Все объекты</a>
+  </div>
 </div>
 
 <div id="description" class="hide">

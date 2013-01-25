@@ -1,17 +1,19 @@
 @import 'twitter-bootstrap/bootstrap';
-@import 'twitter-bootstrap/responsive';
 @import 'jparallax/jquery.parallax';
 @import 'jparallax/base';
-@import 'jparallax/template.min.css';
 @import 'jparallax/docs.classes';
 @import 'lightbox/jquery.lightbox-0.5';
 @import 'gmaps4rails';
 @import 'tinymce_assets';
-@import 'houses';
 
 body {
-  padding:0;
   background: url('/assets/for_zone/lower3.png');
+  margin-bottom: 40px;
+  padding: 0;
+}
+
+div.container {
+  background-color: #fff;
 }
 
 .navbar {
@@ -20,4 +22,8 @@ body {
 
 .content_zone {
   width: 98%
+}
+
+.left_zone {
+  font-size: 70%;
 }

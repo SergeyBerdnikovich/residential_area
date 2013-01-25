@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require tinymce/tiny_mce
+//= require_self
 //= require_tree .
 
 jQuery(document).ready(function(){
@@ -23,9 +23,5 @@ jQuery(document).ready(function(){
   jQuery('#parallax .parallax-layer')
   .parallax({
     mouseport: jQuery('#parallax')
-  });
-  $('.carousel').carousel({
-    interval: 4000,
-    cycle: true
   });
 });
