@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def contacts
+    @json = Location.all.to_gmaps4rails
   end
 
   def developer
