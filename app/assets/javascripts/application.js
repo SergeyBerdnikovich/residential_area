@@ -16,7 +16,7 @@
 //= require_tree .
 
 jQuery(document).ready(function(){
-  jQuery('.parallax-layer').parallax({
+  jQuery('.parallax-layer#parallax-gallery').parallax({
     mouseport: jQuery("#port"),
     yparallax: false
   });

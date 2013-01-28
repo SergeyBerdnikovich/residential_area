@@ -15,14 +15,14 @@
 }
 
 .thumbs_index {
-    padding: 0 0px;
+    padding: 0 12px;
     left: 0;
     white-space: nowrap;
 }
 
 .thumbs_index > li {
     display: inline;
-    margin-right: 0px;
+    margin-right: 12px;
 }
 
 .img_thumb {
