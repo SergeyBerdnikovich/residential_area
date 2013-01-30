@@ -1,38 +1,38 @@
 <ul class="nav nav-list">
-  <li class="nav-header">Меню</li>
-  <li><a href="/"><i class="icon-flag"></i>Главная</a></li>
+  <li class="nav-header"><%= I18n.t('menu.menu') %></li>
+  <li><a href="/"><i class="icon-flag"></i><%= I18n.t('menu.home') %></a></li>
   <li class="dropdown-submenu">
-    <a tabindex="-1" href="#"><i class="icon-home"></i>Жилищное строительство</a>
+    <a tabindex="-1" href="#"><i class="icon-home"></i><%= I18n.t('menu.housing') %></a>
     <ul class="dropdown-menu">
-      <li class="active"><a href="#"><i class="icon-home"></i>Готовые</a></li>
+      <li class="active"><a href="#"><i class="icon-home"></i><%= I18n.t('menu.completed') %></a></li>
       <li>
         <%= render "layouts/menu/completed_houses" %>
       </li>
-      <li class="active"><a href="#"><i class="icon-wrench"></i>Строятся</a></li>
+      <li class="active"><a href="#"><i class="icon-wrench"></i><%= I18n.t('menu.built') %></a></li>
       <li>
         <%= render "layouts/menu/uncompleted_houses" %>
       </li>
     </ul>
   </li>
   <li class="dropdown-submenu">
-    <a tabindex="-1" href="#"><i class="icon-home"></i>Комерческие объекты</a>
+    <a tabindex="-1" href="#"><i class="icon-home"></i><%= I18n.t('menu.comercial_objects') %></a>
     <ul class="dropdown-menu">
       <li>
         <%= render "layouts/menu/not_residential_apartments" %>
       </li>
     </ul>
   </li>
-  <li><a href="/pages/developer"><i class="icon-user"></i>Застройщик</a></li>
-  <li><a href="/news"><i class="icon-info-sign"></i>Новости</a></li>
-  <li><a href="/pages/files"><i class="icon-file"></i>Юридический отдел</a></li>
-  <li><a href="/pages/contacts"><i class="icon-envelope"></i>Контактная информация</a></li>
+  <li><a href="/pages/developer"><i class="icon-user"></i><%= I18n.t('menu.developer') %></a></li>
+  <li><a href="/news"><i class="icon-info-sign"></i><%= I18n.t('menu.news') %></a></li>
+  <li><a href="/pages/files"><i class="icon-file"></i><%= I18n.t('menu.law_department') %></a></li>
+  <li><a href="/pages/contacts"><i class="icon-envelope"></i><%= I18n.t('menu.contact_information') %></a></li>
 
     <% if user_signed_in? %>
       User: <%= current_user.email %><br>
       Role: <%= current_user.role.name %><br>
-      <li><p><i class="icon-cog"></i><%= link_to "Выити", destroy_user_session_path, :method => "DELETE" %></p></li>
+      <li><p><i class="icon-cog"></i><%= link_to I18n.t('menu.logout'), destroy_user_session_path, :method => "DELETE" %></p></li>
     <% else %>
-      <li><p><i class="icon-cog"></i><%= link_to "Войти", new_user_session_path %></p></li>
+      <li><p><i class="icon-cog"></i><%= link_to I18n.t('menu.login'), new_user_session_path %></p></li>
     <% end %>
 
 </ul>

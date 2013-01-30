@@ -1,13 +1,13 @@
-<span class="label label-success">Название</span><br>
+<span class="label label-success"><%= I18n.t('title') %></span><br>
 <%= @house.title %><br>
 <div class="btn-toolbar">
   <div class="btn-group" data-toggle="buttons-checkbox">
-    <button type="button" class="btn btn-info", id="show_description">Описание</button>
-    <button type="button" class="btn btn-info", id="show_residential_apartments">Квартиры</button>
-    <button type="button" class="btn btn-info", id="show_not_residential_apartments">Коммерческие объекты</button>
+    <button type="button" class="btn btn-info", id="show_description"><%= I18n.t('description') %></button>
+    <button type="button" class="btn btn-info", id="show_residential_apartments"><%= I18n.t('houses.apartments') %></button>
+    <button type="button" class="btn btn-info", id="show_not_residential_apartments"><%= I18n.t('houses.comercial_objects') %></button>
   </div>
   <div class="btn-group">
-    <a href=<%= house_apartments_path(@house) %> class="btn btn-info btn-small" rel="popover" data-content="Чтобы посмотреть все объекты этого дома нажми меня...!" data-original-title="Подсказка">Все объекты</a>
+    <a href=<%= house_apartments_path(@house) %> class="btn btn-info btn-small" rel="popover" data-content="<%= I18n.t('houses.hint_body') %>" data-original-title=<%= I18n.t('houses.hint') %>><%= I18n.t('houses.all_objects') %></a>
   </div>
 </div>
 
@@ -17,19 +17,19 @@
 <br>
 
 <div id="residential_apartments" class="hide">
-  <span class="label label-success">Квартиры</span><br>
+  <span class="label label-success"><%= I18n.t('houses.apartments') %></span><br>
   <%= render :partial => 'show_apartments',
              :locals => { :apartments => @residential_apartments } %>
 </div>
 <br>
 
 <div id="not_residential_apartments" class="hide">
-  <span class="label label-success">Комерческие объекты</span><br>
+  <span class="label label-success"><%= I18n.t('houses.comercial_objects') %></span><br>
   <%= render :partial => 'show_apartments',
              :locals => { :apartments => @not_residential_apartments } %>
 </div>
 <%= render 'show_gallery' %>
-<span class="label label-success">Карта</span>
+<span class="label label-success"><%= I18n.t('houses.maps') %></span>
 <%= gmaps("markers" => { "data" => @json },
           "map_options" => { "zoom" => 15,
                              "auto_adjust" => true,

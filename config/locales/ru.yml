@@ -1,0 +1,54 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+ru:
+  title: 'Название'
+  description: 'Описание'
+  gallery: 'Галерея'
+  back: 'Назад'
+
+  houses:
+    maps: 'Карта'
+    apartments: 'Квартиры'
+    comercial_objects: 'Комерческие объекты'
+    all_objects: 'Все объекты'
+    hint: 'Подсказка'
+    hint_body: "Чтобы посмотреть все объекты нажми на меня!"
+
+  apartments:
+    house: 'Дом'
+    cost: 'Стоимость'
+    space: 'Площадь'
+    number_of_rooms: 'Кол. комнат'
+    residential: 'Жилая'
+    show: 'Посмотреть'
+
+  menu:
+    menu: 'Меню'
+    home: 'Главная'
+    housing: "Жилое строительство"
+    comercial_objects: 'Комерческие объекты'
+    developer: 'Застройщик'
+    news: 'Новости'
+    law_department: 'Юридический отдел'
+    contact_information: 'Контактная информация'
+    login: 'Войти'
+    logout: 'Выйти'
+    completed: 'Готовые'
+    built: 'Строяться'
+
+  home:
+    last_news: 'Последние новости'
+    read: 'Читать'
+
+  developer:
+    company: 'О компании'
+    heads: 'Руководители'
+    full_name: 'Ф.И.О.'
+    position: 'Должность'
+    phone_numbers: 'Номера телефонов'
+    partners: 'Партнёры'
+
+  news:
+    created_at: 'Создано'
+    content: 'Содержимое'

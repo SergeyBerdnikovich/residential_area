@@ -1,36 +1,36 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>House:</b>
+  <b><%= I18n.t('apartments.house') %>:</b>
   <%= link_to @apartment.house.title, @apartment.house %>
 </p>
 
 <p>
-  <b>Title:</b>
+  <b><%= I18n.t('title') %>:</b>
   <%= @apartment.title %>
 </p>
 
 <p>
-  <b>Description:</b>
+  <b><%= I18n.t('description') %>:</b>
   <%= @apartment.description %>
 </p>
 
 <p>
-  <b>Cost:</b>
+  <b><%= I18n.t('apartments.cost') %>:</b>
   <%= @apartment.cost %> $
 </p>
 
 <p>
-  <b>Space:</b>
+  <b><%= I18n.t('apartments.space') %>:</b>
   <%= @apartment.space %> m2
 </p>
 
 <p>
-  <b>Number of rooms:</b>
+  <b><%= I18n.t('apartments.number_of_rooms') %>:</b>
   <%= @apartment.number_of_rooms %>
 </p>
 <br>
 <%= render "/houses/show_gallery" %>
 <br>
 
-<%= link_to 'Back', :back %>
+<%= link_to I18n.t('back'), :back %>

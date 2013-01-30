@@ -14,7 +14,7 @@
       <img src="./assets/0.7.1/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2013-01-27T17:45:52+03:00">2013-01-27T17:45:52+03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2013-01-30T16:10:47+03:00">2013-01-30T16:10:47+03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,15 +25,15 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.36
+         2.38
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>41</b> files in total.
-    <b>515</b> relevant lines. 
-    <span class="green"><b>512</b> lines covered</span> and
+    <b>518</b> relevant lines. 
+    <span class="green"><b>515</b> lines covered</span> and
     <span class="red"><b>3</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -172,12 +172,12 @@
       
       <tr>
         <td class="strong"><a href="#84edacada0daf231b9d16a2c4215ecd2ade904e9" class="src_link" title="app/controllers/application_controller.rb">app/controllers/application_controller.rb</a></td>
-        <td class="green strong">94.44 %</td>
-        <td>32</td>
-        <td>18</td>
-        <td>17</td>
+        <td class="green strong">95.24 %</td>
+        <td>37</td>
+        <td>21</td>
+        <td>20</td>
         <td>1</td>
-        <td>24.1</td>
+        <td>25.0</td>
       </tr>
       
       <tr>
@@ -616,19 +616,19 @@
           <div class="file_list_container" id="Controllers">
   <h2>
     <span class="group_name">Controllers</span>
-    (<span class="covered_percent"><span class="green">97.4%</span></span>
+    (<span class="covered_percent"><span class="green">97.5%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         3.95
+         4.06
        </span>
     </span> hits/line)
   </h2>
   <a name="Controllers"></a>
   <div>
     <b>8</b> files in total.
-    <b>77</b> relevant lines. 
-    <span class="green"><b>75</b> lines covered</span> and
+    <b>80</b> relevant lines. 
+    <span class="green"><b>78</b> lines covered</span> and
     <span class="red"><b>2</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -657,12 +657,12 @@
       
       <tr>
         <td class="strong"><a href="#84edacada0daf231b9d16a2c4215ecd2ade904e9" class="src_link" title="app/controllers/application_controller.rb">app/controllers/application_controller.rb</a></td>
-        <td class="green strong">94.44 %</td>
-        <td>32</td>
-        <td>18</td>
-        <td>17</td>
+        <td class="green strong">95.24 %</td>
+        <td>37</td>
+        <td>21</td>
+        <td>20</td>
         <td>1</td>
-        <td>24.1</td>
+        <td>25.0</td>
       </tr>
       
       <tr>
@@ -4453,10 +4453,10 @@
         <div class="source_table" id="84edacada0daf231b9d16a2c4215ecd2ade904e9">
   <div class="header">
     <h3>app/controllers/application_controller.rb</h3>
-    <h4><span class="green">94.44 %</span> covered</h4>
+    <h4><span class="green">95.24 %</span> covered</h4>
     <div>
-      <b>18</b> relevant lines. 
-      <span class="green"><b>17</b> lines covered</span> and
+      <b>21</b> relevant lines. 
+      <span class="green"><b>20</b> lines covered</span> and
       <span class="red"><b>1</b> lines missed.</span>
     </div>
   </div>
@@ -4482,175 +4482,205 @@
           <code class="ruby">  before_filter :init_menu</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="4">
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  before_filter :set_locale</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="5">
+        <li class="covered" data-hits="1" data-linenumber="6">
           <span class="hits">1</span>
           
           <code class="ruby">  def init_menu</code>
         </li>
       
-        <li class="covered" data-hits="89" data-linenumber="6">
+        <li class="covered" data-hits="89" data-linenumber="7">
           <span class="hits">89</span>
           
           <code class="ruby">    @completed_houses = House.get_completed</code>
         </li>
       
-        <li class="covered" data-hits="89" data-linenumber="7">
+        <li class="covered" data-hits="89" data-linenumber="8">
           <span class="hits">89</span>
           
           <code class="ruby">    @uncompleted_houses = House.get_uncompleted</code>
         </li>
       
-        <li class="covered" data-hits="89" data-linenumber="8">
+        <li class="covered" data-hits="89" data-linenumber="9">
           <span class="hits">89</span>
           
-          <code class="ruby">    @not_residential_apartments = Apartment.get_not_residential</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="9">
-          
-          
-          <code class="ruby">   end</code>
+          <code class="ruby">    @not_residential_apartments_for_menu = Apartment.get_not_residential</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="10">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">   end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="11">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="11">
           
-          <code class="ruby">  rescue_from CanCan::AccessDenied do |exception|</code>
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="12">
           <span class="hits">1</span>
           
-          <code class="ruby">    redirect_to root_url, :alert =&gt; exception.message</code>
+          <code class="ruby">  rescue_from CanCan::AccessDenied do |exception|</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="13">
+        <li class="covered" data-hits="1" data-linenumber="13">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  end</code>
+          <code class="ruby">    redirect_to root_url, :alert =&gt; exception.message</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="14">
           
           
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="15">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="15">
+        <li class="covered" data-hits="1" data-linenumber="16">
           <span class="hits">1</span>
           
           <code class="ruby">  def after_sign_in_path_for(resource)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="16">
+        <li class="missed" data-hits="0" data-linenumber="17">
           
           
           <code class="ruby">    resource.role &amp;&amp; resource.role?(:admin) ? admin_dashboard_path : root_path</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="17">
+        <li class="never" data-hits="" data-linenumber="18">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="18">
+        <li class="never" data-hits="" data-linenumber="19">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="19">
+        <li class="covered" data-hits="1" data-linenumber="20">
           <span class="hits">1</span>
           
           <code class="ruby">  def authenticate_admin_user!</code>
         </li>
       
-        <li class="covered" data-hits="78" data-linenumber="20">
+        <li class="covered" data-hits="78" data-linenumber="21">
           <span class="hits">78</span>
           
           <code class="ruby">    if current_user</code>
         </li>
       
-        <li class="covered" data-hits="77" data-linenumber="21">
+        <li class="covered" data-hits="77" data-linenumber="22">
           <span class="hits">77</span>
           
           <code class="ruby">      unless current_user.role.name == 'admin' || current_user.role.name == 'moderator'</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="22">
+        <li class="covered" data-hits="1" data-linenumber="23">
           <span class="hits">1</span>
           
           <code class="ruby">        raise SecurityError</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="23">
+        <li class="never" data-hits="" data-linenumber="24">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="24">
+        <li class="never" data-hits="" data-linenumber="25">
           
           
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="25">
+        <li class="covered" data-hits="1" data-linenumber="26">
           <span class="hits">1</span>
           
           <code class="ruby">      redirect_to root_path, :alert =&gt; 'please log in'</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="26">
+        <li class="never" data-hits="" data-linenumber="27">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="27">
+        <li class="never" data-hits="" data-linenumber="28">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="28">
+        <li class="never" data-hits="" data-linenumber="29">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="29">
+        <li class="covered" data-hits="1" data-linenumber="30">
           <span class="hits">1</span>
           
           <code class="ruby">  rescue_from SecurityError do |exception|</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="30">
+        <li class="covered" data-hits="1" data-linenumber="31">
           <span class="hits">1</span>
           
           <code class="ruby">    redirect_to root_path, :alert =&gt; exception.message</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="31">
+        <li class="never" data-hits="" data-linenumber="32">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="32">
+        <li class="never" data-hits="" data-linenumber="33">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="34">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def set_locale</code>
+        </li>
+      
+        <li class="covered" data-hits="89" data-linenumber="35">
+          <span class="hits">89</span>
+          
+          <code class="ruby">    I18n.locale = params[:locale] || I18n.default_locale</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="36">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="37">
           
           
           <code class="ruby">end</code>

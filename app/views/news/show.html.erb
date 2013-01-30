@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Title:</b>
+  <b><%= I18n.t('title') %>:</b>
   <%= @news.title %>
 </p>
 
 <p>
-  <b>Content:</b><br>
+  <b><%= I18n.t('news.content') %>:</b><br>
   <%== News.sanitize_news(@news.content) %>
 </p>
 
-<%= link_to 'Back', news_index_path %>
+<%= link_to I18n.t('back'), :back %>

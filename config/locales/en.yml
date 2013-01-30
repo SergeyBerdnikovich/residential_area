@@ -2,4 +2,53 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  title: 'Title'
+  description: 'Description'
+  gallery: 'Gallery'
+  back: 'Back'
+
+  houses:
+    maps: 'Maps'
+    apartments: 'Apartments'
+    comercial_objects: 'Comercial objects'
+    all_objects: 'All objects'
+    hint: 'Hint'
+    hint_body: "To see all of the objects of this house click me!"
+
+  apartments:
+    house: 'House'
+    cost: 'Cost'
+    space: 'Space'
+    number_of_rooms: 'Number of rooms'
+    residential: 'Residential'
+    show: 'Show'
+
+  menu:
+    menu: 'Menu'
+    home: 'Home'
+    housing: "Housing"
+    comercial_objects: 'Comercial objects'
+    developer: 'Developer'
+    news: 'News'
+    law_department: 'Law department'
+    contact_information: 'Contact Information'
+    login: 'Login'
+    logout: 'Logout'
+    completed: 'Completed'
+    built: 'Built'
+
+  home:
+    last_news: 'Last News'
+    read: 'Read'
+
+  developer:
+    company: 'Company'
+    heads: 'Heads'
+    full_name: 'Full name'
+    position: 'Position'
+    phone_numbers: 'Phone numbers'
+    partners: 'Partners'
+
+  news:
+    created_at: 'Created at'
+    content: 'Content'

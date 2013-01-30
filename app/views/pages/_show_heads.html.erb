@@ -1,9 +1,9 @@
-<span class="label label-success">Руководители</span><br>
+<span class="label label-success"><%= I18n.t('developer.heads') %></span><br>
 <table class="table table-bordered">
   <tr>
-    <th>Full name</th>
-    <th>Position</th>
-    <th>Phone numbers</th>
+    <th><%= I18n.t('developer.full_name') %></th>
+    <th><%= I18n.t('developer.position') %></th>
+    <th><%= I18n.t('developer.phone_numbers') %></th>
   </tr>
   <% @heads.each do |head| %>
     <tr>

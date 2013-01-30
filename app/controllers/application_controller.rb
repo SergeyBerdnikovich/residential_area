@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :init_menu
+  before_filter :set_locale
 
   def init_menu
     @completed_houses = House.get_completed
@@ -28,5 +29,9 @@ class ApplicationController < ActionController::Base
 
   rescue_from SecurityError do |exception|
     redirect_to root_path, :alert => exception.message
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
   end
 end

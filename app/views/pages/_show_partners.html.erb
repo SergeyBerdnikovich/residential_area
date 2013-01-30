@@ -1,9 +1,9 @@
-<span class="label label-success">Партнёры</span><br>
+<span class="label label-success"><%= I18n.t('developer.partners') %></span><br>
 <table class="table table-bordered">
   <tr>
-    <th>title</th>
-    <th>description</th>
-    <th>Phone numbers</th>
+    <th><%= I18n.t('title') %></th>
+    <th><%= I18n.t('description') %></th>
+    <th><%= I18n.t('developer.phone_numbers') %></th>
   </tr>
   <% @partners.each do |partner| %>
     <tr>

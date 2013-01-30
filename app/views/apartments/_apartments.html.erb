@@ -3,12 +3,12 @@
 <table class="table">
   <tr>
     <th></th>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Cost</th>
-    <th>Space</th>
-    <th>Number of rooms</th>
-    <th>Residential</th>
+    <th><%= I18n.t('title') %></th>
+    <th><%= I18n.t('description') %></th>
+    <th><%= I18n.t('apartments.cost') %></th>
+    <th><%= I18n.t('apartments.space') %></th>
+    <th><%= I18n.t('apartments.number_of_rooms') %></th>
+    <th><%= I18n.t('apartments.residential') %></th>
     <th></th>
     <th></th>
     <th></th>
@@ -23,7 +23,7 @@
     <td><%= apartment.space %></td>
     <td><%= apartment.number_of_rooms %></td>
     <td><%= apartment.residential %></td>
-    <td><%= link_to 'Show', house_apartment_path(@house, apartment) %></td>
+    <td><%= link_to I18n.t('apartments.show'), house_apartment_path(@house, apartment) %></td>
   </tr>
 <% end %>
 </table>

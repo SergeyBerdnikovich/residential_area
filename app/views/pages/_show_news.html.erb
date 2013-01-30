@@ -1,4 +1,4 @@
-<span class="label label-success">Последние новости</span><br>
+<span class="label label-success"><%= I18n.t('home.last_news') %></span><br>
 <div class="tabbable">
   <ul class="nav nav-tabs">
     <% @last_news.each_with_index do |news, indx| %>
@@ -13,7 +13,7 @@
         <p>
           <strong><%= news.title %></strong>
           <%== News.sanitize_news(news.content[0..300]) %>
-          <%= link_to "Читать", news %>
+          <%= link_to I18n.t('home.read'), news %>
         </p>
       </div>
     <% end %>

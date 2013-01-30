@@ -1,11 +1,11 @@
 <div class="site_wrap wrap">
-  <span class="label label-success">Галерея</span>
+  <span class="label label-success"><%= I18n.t('gallery') %></span>
   <div id="port">
     <div id="gallery">
     <ul class="thumbs_index index parallax-layer" id="parallax-gallery">
       <% @gallery.each do |photo| %>
         <li>
-          <a class="img_thumb thumb" href=<%= "#{ photo.image.url(:normal) }" %> style=<%="background:url(#{photo.image.url(:for_gallery)});"%>>item</a>
+          <a class="img_thumb thumb" href="<%= photo.image.url(:normal) %>" style="background:url(<%= photo.image.url(:for_gallery) %>);">item</a>
         </li>
       <% end %>
     </ul>
